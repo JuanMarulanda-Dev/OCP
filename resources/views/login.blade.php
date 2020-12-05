@@ -11,14 +11,7 @@
 </head>
 
 <body>
-    <!-- Louder pages -->
-    <div class="center" id="loader">
-        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="spinner-border" style="width: 8rem; height: 8rem; color: #003161" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-    </div>
+    @extends('Layout/loader')
     {{-- Content --}}
     <div id="auth" class="d-none">
         <div class="container">
@@ -40,7 +33,7 @@
                                 <h4 class="font-weight-bolder">Bienvenido</h4>
                                 <p>Completa el formulario para ingresar a tu cuenta</p>
                             </div>
-                            <form action="index.html" method="POST">
+                            <form action="{{route('home')}}" method="GET">
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Correo electronico*</label>
                                     <div class="position-relative">

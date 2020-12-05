@@ -797,13 +797,18 @@ footer {
   margin-left: 0;
 }
 
+.sidebar-item:hover{
+  background-color: #003161!important;
+  transition: all 0.2s;
+}
+
 .sidebar-wrapper {
   width: 260px;
   height: 100vh;
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: #fff;
+  background-color:#001933;
   bottom: 0;
   border-right: 1px solid #eee;
   box-shadow: 0 0 10px #ececec;
@@ -811,9 +816,15 @@ footer {
   transition: left 0.6s ease-out;
 }
 .sidebar-wrapper .sidebar-header {
-  padding: 2rem 2rem 1rem;
-  font-size: 2rem;
-  font-weight: bold;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: flex-end;
+  background: url(/images/logo-blanco.d7602070.png) 45%;
+  background-size: 9rem;
+  background-repeat: no-repeat;
+  background-color: #001224;
+
 }
 .sidebar-wrapper .sidebar-header img {
   height: 2.5rem;
@@ -826,10 +837,9 @@ footer {
 }
 .sidebar-wrapper .menu {
   padding-left: 0;
-  margin-top: 2rem;
 }
 .sidebar-wrapper .menu .sidebar-title {
-  padding: 1.5rem 1.8rem 0.5rem;
+  padding: 1rem 1rem 0.5rem;
   font-size: 0.8rem;
   font-weight: 600;
   color: #888;
@@ -838,16 +848,17 @@ footer {
 .sidebar-wrapper .menu .sidebar-link {
   display: block;
   padding: 0.7rem 1.5rem;
-  font-size: 0.85rem;
+  font-size: 0.90rem;
   display: flex;
   align-items: center;
   transition: all 0.5s;
+  color: #06c;
 }
 .sidebar-wrapper .menu .sidebar-link:hover span {
   opacity: 1;
 }
 .sidebar-wrapper .menu .sidebar-link > span {
-  color: #053382;
+  color: #fff;
   font-weight: 500;
   margin-left: 1rem;
   opacity: 0.8;
@@ -866,7 +877,8 @@ footer {
   display: block;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link {
-  background-color: #e8f3ff;
+  background-color: #003161!important;
+  color: #f6a623;
 }
 .sidebar-wrapper .menu .sidebar-item.active .sidebar-link:before {
   content: "";
@@ -875,7 +887,7 @@ footer {
   height: 100%;
   top: 0;
   bottom: 0;
-  background-color: rgba(46, 170, 244, 0.5);
+  background-color: #f6a623;
   width: 5px;
 }
 .sidebar-wrapper .menu .submenu {
@@ -973,6 +985,15 @@ footer {
   color: #fff;
 }
 
+#navbarSupportedContent ul li:first-child{
+  padding: 0 10px; 
+  border-right: solid 1px;
+}
+
+#navbarSupportedContent ul:first-child h6{
+  margin: 0;
+}
+
 .pricing .card {
   box-shadow: none;
   margin-bottom: 0;
@@ -1060,6 +1081,8 @@ footer {
 .navbar {
   height: 70px;
   padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.0392157);
+  background-color: #fff;
 }
 .navbar .nav-link-user img {
   width: 30px;
