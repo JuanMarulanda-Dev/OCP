@@ -2,13 +2,18 @@
 
 @section('content')
 
-<a href="#" class="btn icon icon-left btn-primary"><i data-feather="user"></i> Default</a>
-
 <section class="section">
-    <div class="card">
-        <div class="card-header">
-            Simple Datatable
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between">
+                    <h3><i data-feather="users" width="20"></i>&nbsp;Usuarios</h3>
+                    <a href="{{ route("usuers.create") }}" class="btn icon icon-left btn-primary float-right"><i data-feather="user"></i> Nuevo Usuario</a>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="card">
         <div class="card-body">
             <table class='table table-striped' id="table1">
                 <thead>

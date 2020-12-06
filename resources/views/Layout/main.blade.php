@@ -85,7 +85,7 @@
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="d-none d-md-block d-lg-inline-block">Hi, Juan David</div>
                                 <div class="avatar mr-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="{{asset("images/avatar/avatar-s-1.png")}}" alt="" srcset="">
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">

@@ -28,5 +28,9 @@ Route::get('/home', function () {
 })->name("home");
 
 Route::get('/usuarios', function () {
-    return view('Modules/users');
+    return view('Modules/users/index');
 })->name("usuers");
+
+Route::get('/usuarios/create', function () {
+    return view('Modules/users/create');
+})->name("usuers.create");

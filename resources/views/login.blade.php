@@ -11,7 +11,14 @@
 </head>
 
 <body>
-    @extends('Layout/loader')
+    <!-- Louder pages -->
+    <div class="center" id="loader">
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="spinner-border" style="width: 8rem; height: 8rem; color: #003161" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
     {{-- Content --}}
     <div id="auth" class="d-none">
         <div class="container">
