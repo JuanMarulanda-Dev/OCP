@@ -32,20 +32,16 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <!-- // Basic multiple Column Form section start -->
-                    <form class="form mt-4">
+                    <form id="form-user" class="form mt-4 p-3">
                         
                         <div class="row">
-                            <div class="col-md-3 d-flex justify-content-center lign-items-center">
-                                <div class="img-user">
-                                    <div class="rounded position-relative">
+                            <div class="col-md-3 d-flex lign-items-center justify-content-center">
+                                <div class="img-user position-relative">
+                                    <div class="rounded">
                                         <i data-feather="image" style="color: #fff;"></i>
-                                        <div class="form-file ">
-                                            <input type="file" class="form-file-input" id="customFile">
-                                            <label class="form-file-label" for="customFile">
-                                                <span class="form-file-button btn-primary "><i data-feather="upload"></i></span>
-                                            </label>
-                                        </div>
                                     </div>
+                                    <input type="file" class="d-none" name="user-photo" id="" accept="image/*">
+                                    <button class="btn icon btn-primary float-right"><i data-feather="upload"></i></button>
                                 </div>
                             </div>
                             

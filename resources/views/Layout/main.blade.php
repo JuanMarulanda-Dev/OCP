@@ -68,7 +68,7 @@
         </div>
 
         <div id="main">
-            <nav class="navbar navbar-header navbar-expand navbar-light">
+            <nav class="navbar navbar-header navbar-expand navbar-light sticky-top">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -111,8 +111,8 @@
                 <p>2020 &copy; Voler</p>
             </div>
             <div class="float-right">
-                <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                        href="http://ahmadsaugi.com">Ahmad Saugi</a></p>
+                <p>Development Made With <span class='text-danger'><i data-feather="heart"></i></span> by <a
+                        href="http://ahmadsaugi.com">Juan David M</a></p>
             </div>
         </div>
     </footer>
@@ -121,7 +121,7 @@
     <script src="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.min.js")}}"></script>
     <script src="{{asset("js/app.js")}}"></script>
 
-    <script src="{{asset("vendors/chartjs/Chart.min.js")}}"></script>
+    {{-- <script src="{{asset("vendors/chartjs/Chart.min.js")}}"></script> --}}
     <script src="{{asset("vendors/apexcharts/apexcharts.min.js")}}"></script>
     {{-- <script src="{{asset("js/pages/dashboard.js")}}"></script> --}}
 

@@ -18,11 +18,11 @@
             <table class='table table-striped' id="table1">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Combre</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>City</th>
-                        <th>Status</th>
+                        <th>Compañia</th>
+                        <th>Rol</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -1314,11 +1314,37 @@ footer {
   border-radius: 0.267rem !important;
 }
 
-/* Img user */
+/* Form User */
 .img-user>div{
   width: 200px;
   height: 200px;
-  background-color: currentcolor;
+  background-color: #bdbdbd;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1;
+  user-select: none;
+  justify-content: center;
+}
+
+.img-user>button{
+  margin: -4rem 1rem 0 0;
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #003161!important;
+  border: none;
+}
+
+#form-user .form-control-icon{
+  color: #003161;
+}
+
+svg.feather, i {
+  font-size: 20px;
+  height: 2rem;
 }
 
 /* Datatable customer */
