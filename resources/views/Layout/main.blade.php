@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - {{ env("APP_NAME") }}</title>
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset("css/app-vero.css") }}">
     <link rel="stylesheet" href="{{asset("vendors/chartjs/Chart.min.css")}}">
 

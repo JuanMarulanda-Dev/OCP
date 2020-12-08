@@ -12,6 +12,8 @@ use Tests\TestCase;
 
 class loginTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test  */
     public function login_view_contains_livewire_login()
     {
