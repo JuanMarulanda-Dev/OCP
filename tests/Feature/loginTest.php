@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Login;
+use App\Http\Livewire\Logout;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -32,7 +33,7 @@ class loginTest extends TestCase
     }
 
         /** @test  */
-        public function contains_livewire_login_no_authentication()
+        public function livewire_login_no_authentication()
         {
             $user = User::factory()->create();
     
@@ -44,4 +45,21 @@ class loginTest extends TestCase
                 ->assertEmitted('ShowAlertDangerUserNotFound')
                 ->assertStatus(200);
         }
+
+        /** @test  */
+        public function livewire_logout()
+        {
+            $user = User::factory()->create();
+            Livewire::actingAs($user);
+
+            Livewire::test(Logout::class)
+            ->emit('logout_session')
+            ->assertEmitted('ShowLoaderPage')
+            ->assertRedirect('/login')
+            ->assertStatus(200);
+
+            $this->get('/home')->assertRedirect('login');
+        }
+
+        
 }

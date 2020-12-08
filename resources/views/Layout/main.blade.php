@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset("vendors/chartjs/Chart.min.css")}}">
 
     <link rel="stylesheet" href="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.css")}}">
+    @livewireStyles
 </head>
 
 <body>
@@ -90,9 +91,9 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Mi perfil</a>
-                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Mis proyectos</a>
+                                <a class="dropdown-item" href="#"><i data-feather="mail"></i> Mis proyectos</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Cerrar Sesión</a>
+                                @livewire('logout')
                             </div>
                         </li>
                     </ul>
@@ -126,7 +127,7 @@
     {{-- <script src="{{asset("js/pages/dashboard.js")}}"></script> --}}
 
     <script src="{{asset("/js/main.js")}}"></script>
-
+    
     @stack('scripts')
 
     <script>
@@ -139,9 +140,14 @@
     
                 document.getElementById('loader').className = 'd-none';
             }
+
+            Livewire.on('ShowLoaderPage', () => 
+                $('#app').addClass("d-none")
+            )
     
         });
     </script>
+    @livewireScripts
 
 </body>
 
