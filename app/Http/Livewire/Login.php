@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,15 +19,21 @@ class Login extends Component
     {
         // $this->emit('ShowLoaderActionLogin');
         $this->validate();
+        
+        if(User::where('email', $this->email)->first() != null){
 
-        if(Auth::attempt(['email' => $this->email, 'password' => $this->password])){
+            if(Auth::attempt(['email' => $this->email, 'password' => $this->password])){
 
-            return redirect(route('home'));
-
+                return redirect(route('home'));
+    
+            }else{
+    
+                $this->emit('ShowAlertDangerUserNotFound', "Advertencia!", "Contraseña incorrecta");
+                // $this->emit('HiddeLoaderActionLogin');
+            }
         }else{
-
+            
             $this->emit('ShowAlertDangerUserNotFound', "Advertencia!", "No se encontró cuenta del usuario con el correo especificado.");
-            // $this->emit('HiddeLoaderActionLogin');
         }
 
     }
