@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="d-flex justify-content-between">
                     <h3><i data-feather="users" width="20"></i>&nbsp;Usuarios</h3>
-                    <a href="{{ route("usuers.create") }}" class="btn icon icon-left btn-primary float-right"><i data-feather="user"></i> Nuevo Usuario</a>
+                    <a href="{{ route("usuarios.create") }}" class="btn icon icon-left btn-primary float-right"><i data-feather="user"></i> Nuevo Usuario</a>
                 </div>
             </div>
         </div>

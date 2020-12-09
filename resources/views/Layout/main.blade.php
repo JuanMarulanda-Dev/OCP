@@ -9,8 +9,8 @@
     <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset("css/app-vero.css") }}">
     <link rel="stylesheet" href="{{asset("vendors/chartjs/Chart.min.css")}}">
-
     <link rel="stylesheet" href="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.css")}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     @livewireStyles
 </head>
 
@@ -35,7 +35,7 @@
                         <li class='sidebar-title'>Menu Principal</li>
 
                         <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route('usuarios.index') }}" class='sidebar-link'>
                                 <i data-feather="users" width="20"></i>
                                 <span>Usuarios</span>
                             </a>
@@ -128,8 +128,6 @@
 
     <script src="{{asset("/js/main.js")}}"></script>
     
-    @stack('scripts')
-
     <script>
         window.addEventListener('load', () => {
     
@@ -144,9 +142,14 @@
             Livewire.on('ShowLoaderPage', () => 
                 $('#app').addClass("d-none")
             )
-    
+            
+            @stack('listeners')
+
         });
     </script>
+
+    @stack('scripts')
+
     @livewireScripts
 
 </body>

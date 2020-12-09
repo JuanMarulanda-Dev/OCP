@@ -1404,7 +1404,9 @@ svg.feather, i {
 #error .error-title {
   font-size: 10rem;
 }
-
+.error{
+  color: red;
+}
 /** 5. Utilities **/
 .text-xxs {
   font-size: 0.65rem;
