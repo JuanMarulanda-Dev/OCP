@@ -16,4 +16,8 @@
         Livewire.on('ShowActionFinishedSuccess', (body, title) => {
             toastr.success(body, title)
         });
+
+        Livewire.on('ShowProfileImage', () => {
+            $("#image").click();
+        });
 @endpush

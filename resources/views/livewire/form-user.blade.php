@@ -34,12 +34,24 @@
                             <div class="row">
                                 <div class="col-md-3 d-flex lign-items-center justify-content-center">
                                     <div class="img-user position-relative">
+                                        @error('image') <span class="error"><small>{{ $message }}</small></span> @enderror
                                         <div class="rounded">
-                                            <i data-feather="image" style="color: #fff;"></i>
+                                            @if ($image)
+                                                <img class="rounded" src="{{ $image->temporaryUrl() }}" alt="profile">
+                                            @else
+                                                <i data-feather="image" style="color: #fff;"></i>
+                                            @endif
                                         </div>
-                                        <input type="file" class="d-none" name="user-photo" accept="image/*" wire:model="image">
-                                        <button type="button" class="btn icon btn-primary float-right"><i data-feather="upload"></i></button>
+                                        <input id="image" type="file" class="d-none" name="user-photo" accept="image/*" wire:model="image">
+
+                                        <div wire:loading wire:target="image" class="text-center">
+                                            <div class="spinner-border text-primary position-relative" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <button wire:click="$emit('ShowProfileImage')" type="button" class="btn icon btn-primary float-right position-relative"><i data-feather="upload"></i></button>
                                     </div>
+                                    
                                 </div>
                                 
                                 <div class="col-md-9">

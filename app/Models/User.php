@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User_rol::class);
     }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
