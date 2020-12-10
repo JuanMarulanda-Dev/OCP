@@ -20,4 +20,5 @@
         Livewire.on('ShowProfileImage', () => {
             $("#image").click();
         });
+
 @endpush

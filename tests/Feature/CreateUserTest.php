@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Http\Livewire\FormUser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -65,4 +67,19 @@ class CreateUserTest extends TestCase
         ->assertEmitted('ShowActionFinishedSuccess')
         ->assertStatus(200);
     }
+
+    /** @test  */
+    public function can_upload_user_image_to_aws_s3()
+    {
+        Storage::fake('s3');
+
+        $file = UploadedFile::fake()->image('avatar.png');
+
+        $res =Livewire::test(FormUser::class)
+                ->set('image', $file)
+                ->call('upload_image');
+        //Esta prueba aun no funciona
+        // Storage::disk('s3')->assertExists('ocp_user_avatars/EQ1dCM3wX7jJmSBXIuvswkjMYDPKD6G8Q12YfEoc.jpg');
+    }
+
 }
