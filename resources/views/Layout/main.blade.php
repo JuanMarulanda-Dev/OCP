@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - {{ env("APP_NAME") }}</title>
+    <script src="https://kit.fontawesome.com/ad3c4e576b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
     <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
     <link rel="stylesheet" href="{{ asset("css/app-vero.css") }}">
     <link rel="stylesheet" href="{{asset("vendors/chartjs/Chart.min.css")}}">
     <link rel="stylesheet" href="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.css")}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    @yield('css')
     @livewireStyles
 </head>
 

@@ -176,6 +176,35 @@ footer {
     font-size: 0.8rem;
   }
 }
+
+/* buttons Actions */
+
+.actions{
+  opacity: 0;
+}
+
+.actions button{
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.actions button:first-child i{
+  color: #06c!important;
+}
+
+.actions button:last-child i{
+  color: red!important;
+}
+
+.actions i{
+  line-height: unset;
+}
+
+table.dataTable.hover tbody tr:hover .actions{
+  opacity: 1;
+}
+
 /** 2.1 Alert  **/
 .alert {
   border: none;
@@ -1362,6 +1391,38 @@ svg.feather, i {
 
 
 /* Datatable customer */
+.dataTables_length select{
+  height: calc(1.5em + 0.934rem + 2px);
+  font-size: 0.855rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #555252;
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 16px 12px;
+  border: 1px solid #DFE3E7;
+}
+
+thead, tbody, tfoot, tr, td, th{
+  border-style: unset;
+}
+
+.dataTables_filter input{
+  min-height: calc(1.5em + 0.934rem + 2px);
+  padding: 0.467rem 0.6rem;
+  font-size: 0.9025rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #555252;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #DFE3E7;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
 .dataTable-top{
   display: flex;

@@ -1,5 +1,9 @@
 @extends('Layout/main')
 
+@section('css')
+    
+@endsection
+
 @section('content')
 
     @livewire('form-user')
