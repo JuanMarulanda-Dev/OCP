@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     {
 
         if(\App\Models\User_rol::count() == 0){
-            \App\Models\User_rol::factory()->create(["rol" => "Administrador"]);
-            \App\Models\User_rol::factory()->create(["rol" => "Usuario"]);
+            \App\Models\User_rol::factory()->create(["id" => 1,"rol" => "Administrador"]);
+            \App\Models\User_rol::factory()->create(["id" => 2,"rol" => "Usuario"]);
         }
         
-        \App\Models\User::factory()->create();
+        \App\Models\User::factory(3)->create();
     }
 }

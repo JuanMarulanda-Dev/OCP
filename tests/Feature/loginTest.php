@@ -19,7 +19,7 @@ class loginTest extends TestCase
     /** @test  */
     public function login_view_contains_livewire_login()
     {
-        \App\Models\User_rol::factory()->create(["rol" => "Administrador"]);
+        \App\Models\User_rol::factory()->create(["id" => 1,"rol" => "Administrador"]);
         self::$user = User::factory()->create();
         $this->get(route('login'))->assertSeeLivewire('login');
     }
