@@ -10,7 +10,7 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                <tr>
+                <tr id="{{ $user->id }}">
                     <td>
                         <div class="avatar mr-3">
                             <img src="{{asset("images/avatar/avatar-s-1.png")}}" alt="" srcset="">
@@ -25,7 +25,7 @@
                             <button>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button>
+                            <button wire:click="destroyConfirm({{ $user->id }})">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>

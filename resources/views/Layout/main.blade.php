@@ -130,6 +130,9 @@
     {{-- <script src="{{asset("js/pages/dashboard.js")}}"></script> --}}
 
     <script src="{{asset("/js/main.js")}}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{ asset("js/tostr_config.js") }}"></script>
     
     <script>
         window.addEventListener('load', () => {
