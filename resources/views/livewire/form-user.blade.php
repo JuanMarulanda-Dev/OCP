@@ -39,7 +39,7 @@
                                             @if ($image)
                                                 <img class="rounded" src="{{ $image->temporaryUrl() }}" alt="profile">
                                             @else
-                                                <i data-feather="image" style="color: #fff;"></i>
+                                                <i class="fas fa-photo-video" style="color: #fff;"></i>
                                             @endif
                                         </div>
                                         <input id="image" type="file" class="d-none" name="user-photo" accept="image/*" wire:model="image">
@@ -49,7 +49,10 @@
                                                 <span class="sr-only">Loading...</span>
                                             </div>
                                         </div>
-                                        <button wire:click="$emit('ShowProfileImage')" type="button" class="btn icon btn-primary float-right position-relative"><i data-feather="upload"></i></button>
+                                        <button wire:click="$emit('ShowProfileImage')" type="button" 
+                                        class="btn-primary float-right position-relative text-center">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </button>
                                     </div>
                                     
                                 </div>
@@ -64,7 +67,7 @@
                                                 <div class="position-relative">
                                                     <input type="text" id="first-name" class="form-control" placeholder="Nombre" wire:model="name">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="user"></i>
+                                                        <i class="far fa-user"></i>
                                                     </div>
                                                 </div>
                                                 @error('name') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -79,7 +82,7 @@
                                                 <div class="position-relative">
                                                     <input type="text" id="last-name" class="form-control" placeholder="Apellido" wire:model="last_name">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="user"></i>
+                                                        <i class="far fa-user"></i>
                                                     </div>
                                                 </div>
                                                 @error('last_name') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -94,7 +97,7 @@
                                                 <div class="position-relative">
                                                     <input type="text" id="company" class="form-control" placeholder="Compañia" wire:model="company">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="home"></i>
+                                                        <i class="fas fa-building"></i>
                                                     </div>
                                                 </div>
                                                 @error('company') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -109,7 +112,7 @@
                                                 <div class="position-relative">
                                                     <input type="text" id="profession" class="form-control" placeholder="Profesión" wire:model="profession">      
                                                     <div class="form-control-icon">
-                                                        <i data-feather="briefcase"></i>
+                                                        <i class="fas fa-suitcase"></i>
                                                     </div>
                                                 </div>
                                                 @error('profession') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -124,7 +127,7 @@
                                                 <div class="position-relative">
                                                     <input type="email" id="email" class="form-control" placeholder="Email" wire:model="email">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="mail"></i>
+                                                        <i class="far fa-envelope"></i>
                                                     </div>
                                                 </div>
                                                 @error('email') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -139,7 +142,7 @@
                                                 <div class="position-relative">
                                                     <input type="text" id="tel" class="form-control" placeholder="Telefono" wire:model="phone">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="phone"></i>
+                                                        <i class="fas fa-phone-alt"></i>
                                                     </div>
                                                 </div>
                                                 @error('phone') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -159,7 +162,7 @@
                                                         @endforeach
                                                     </select>
                                                     <div class="form-control-icon">
-                                                        <i data-feather="users"></i>
+                                                        <i class="fas fa-user-friends"></i>
                                                     </div>
                                                 </div>
                                                 @error('user_rol_id') <span class="error"><small>{{ $message }}</small></span> @enderror
@@ -174,7 +177,7 @@
                                                 <div class="position-relative">
                                                     <input type="password" id="password" class="form-control" placeholder="Contraseña" wire:model="password">
                                                     <div class="form-control-icon">
-                                                        <i data-feather="lock"></i>
+                                                        <i class="fas fa-lock"></i>
                                                     </div>
                                                 </div>
                                                 @error('password') <span class="error"><small>{{ $message }}</small></span> @enderror
