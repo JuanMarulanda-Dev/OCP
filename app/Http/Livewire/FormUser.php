@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -12,7 +13,9 @@ class FormUser extends Component
 {
     use WithFileUploads;
 
-    public $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image;
+    public $action = "submit_user_create";
+
+    public $user, $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image;
 
     protected $rules = [
         'name' => 'required|string',
@@ -20,22 +23,52 @@ class FormUser extends Component
         'company' => 'required|string',
         'profession' => 'required|string',
         'phone' => 'required|numeric',
-        'email' => 'required|email|unique:users',
+        'email' => "required|email|unique:users,email,",
         'password' => 'required|min:8',
         'user_rol_id' => 'required|min:1|exists:App\Models\User_rol,id'
     ];
 
+    private function chooseRulesForUpdateUser($id)
+    {
+        //unique:table,column,except,idColumn
+        $this->rules['email']= "required|email|unique:users,email,".$id;
+
+        //If have password then add password's rules
+        if($this->password){
+            $this->rules['password']= "required|min:8";
+        }else{
+            $this->rules['password']= "";
+        }
+    }
+
+    public function mount($user = null)
+    {
+        if(isset($user)){
+            $this->action = "submit_user_update";
+            $this->name = $user->name;
+            $this->last_name = $user->last_name;
+            $this->company = $user->company;
+            $this->profession = $user->profession;
+            $this->phone = $user->phone;
+            $this->email = $user->email;
+            $this->user_rol_id = $user->user_rol_id;
+        }
+        $this->user = $user;
+    }
+
     public function submit_user_create()
     {
+        //Validate User's Fields
         $validatedData = $this->validate();
 
         $this->validate([
             'image' => 'file|nullable|max:5024'
         ]);
 
+        //Encrypt Password
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        // Save User
+        // Save new User
         $user = User::create($validatedData);
 
         if(isset($user)){
@@ -51,10 +84,45 @@ class FormUser extends Component
                 ]));
 
             }
-
+            //Emit event that show message action
             $this->emit('ShowActionFinishedSuccess', "El usuario fue registrado exitosamente.", "Exitoso!");
         }
 
+    }
+
+    public function submit_user_update()
+    {
+
+        $this->chooseRulesForUpdateUser($this->user->id);
+
+        //Validate User's Fields to Update
+        $validatedData = $this->validate($this->rules);
+
+        // Validate image
+        $this->validate([
+            'image' => 'file|nullable|max:5024'
+        ]);
+
+        $data_user = [
+            'name' => $validatedData['name'],
+            'last_name' => $validatedData['last_name'],
+            'company' => $validatedData['company'],
+            'profession' => $validatedData['profession'],
+            'phone' => $validatedData['phone'],
+            'email' => $validatedData['email'],
+            'user_rol_id' => $validatedData['user_rol_id']
+        ];
+
+        //Does have password change;
+        if($this->password){
+            $data_user['password'] = $validatedData['password'];
+        }
+
+        //Update User
+        $this->user->update($data_user);
+
+        //Emit event that show message action
+        $this->emit('ShowActionFinishedSuccess', "El usuario fue actualizado exitosamente.", "Exitoso!");
     }
 
     public function upload_image()

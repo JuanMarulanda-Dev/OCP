@@ -20,7 +20,13 @@ class IndexUser extends Component
     public function destroy()
     {
         User::destroy($this->userId);
+        $this->userId = 0;
         $this->emit('reloadDataTableUsers', $this->userId);
+    }
+
+    public function showUserDetalis($id)
+    {
+        return redirect()->to(route('usuarios.show', $id)); 
     }
 
     public function render()

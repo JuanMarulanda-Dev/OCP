@@ -87,7 +87,7 @@
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, Juan David</div>
+                            <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
                                 <div class="avatar mr-1">
                                     <img src="{{asset("images/avatar/avatar-s-1.png")}}" alt="" srcset="">
                                 </div>

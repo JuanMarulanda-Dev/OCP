@@ -22,7 +22,7 @@
                     <td>{{ $user->user_rol->rol }}</td>
                     <td>
                         <div class="actions d-flex justify-content-between">
-                            <button>
+                            <button wire:click="showUserDetalis({{ $user->id }})">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button wire:click="destroyConfirm({{ $user->id }})">

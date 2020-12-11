@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-between">
                         <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("usuarios.index") }}">
-                            <i data-feather="arrow-left"></i>
+                            <i class="fas fa-arrow-circle-left"></i>
                             <h3 class="">&nbsp;Usuarios</h3>
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="user-form" role="tabpanel" aria-labelledby="home-tab">
                         <!-- // Basic multiple Column Form section start -->
-                        <form class="form mt-4 p-3" enctype="multipart/form-data" wire:submit.prevent="submit_user_create">
+                        <form class="form mt-4 p-3" enctype="multipart/form-data" wire:submit.prevent="{{$action}}">
                             @csrf
                             <div class="row">
                                 <div class="col-md-3 d-flex lign-items-center justify-content-center">
@@ -156,7 +156,7 @@
                                                 </div>
                                                 <div class="position-relative">
                                                     <select class="form-select" id="rol-user" wire:model="user_rol_id" style="padding-left: 2.5rem;">
-                                                        <option selected>Choose...</option>
+                                                        <option selected>Seleccionar...</option>
                                                         @foreach ($roles as $rol)
                                                             <option value="{{$rol->id}}">{{ $rol->rol }}</option>
                                                         @endforeach
@@ -185,7 +185,7 @@
                                         </div>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
-                                            <button type="submit" class="btn btn-primary mr-1 mb-1">Crear Usuario</button>
+                                            <button type="submit" class="btn btn-primary mr-1 mb-1">@if($user)Actualizar @else Crear @endif Usuario</button>
                                         </div>
                                     </div>
                                 </div>
