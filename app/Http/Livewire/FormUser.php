@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -79,7 +80,7 @@ class FormUser extends Component
 
                 $image_path = $this->upload_image();
 
-                //Save image
+                //Save image route
                 $user->image()->save(Image::factory()->make([
                     'image' => $image_path
                 ]));
@@ -121,6 +122,44 @@ class FormUser extends Component
 
         //Update User
         $this->user->update($data_user);
+
+        // Upload Image
+        if(isset($this->image)){
+
+            // Does User Have one profile image
+            if(isset($this->user->image)){
+
+                $s3 = Storage::disk('s3');
+                // Validate if exists image on s3
+                if($s3->exists($this->user->image->image)){
+
+                    //Delete image from s3 disk
+                    $s3->delete($this->user->image->image);
+
+                }
+
+            }
+            
+            $image_path = $this->upload_image();
+
+            //Save change image
+            if(isset($this->user->image)){
+
+                //Update Image route
+                $this->user->image->update([
+                    'image' => $image_path
+                ]);
+                
+            }else{
+
+                //Save Image Route
+                $this->user->image()->save(Image::factory()->make([
+                    'image' => $image_path
+                ]));
+
+            }
+
+        }
 
         //Emit event that show message action
         $this->emit('ShowActionFinishedSuccess', "El usuario fue actualizado exitosamente.", "Exitoso!");
