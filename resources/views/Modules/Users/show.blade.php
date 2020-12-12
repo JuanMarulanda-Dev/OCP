@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @livewire('form-user', ['user' => $user])
+    @include('Modules.Users.section', ['user' => $user])
 
 @endsection
 

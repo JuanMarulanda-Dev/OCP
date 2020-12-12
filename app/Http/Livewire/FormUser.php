@@ -15,7 +15,7 @@ class FormUser extends Component
 
     public $action = "submit_user_create";
 
-    public $user, $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image;
+    public $user, $profile, $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image;
 
     protected $rules = [
         'name' => 'required|string',
@@ -41,7 +41,7 @@ class FormUser extends Component
         }
     }
 
-    public function mount($user = null)
+    public function mount($user = null, $profile = null)
     {
         if(isset($user)){
             $this->action = "submit_user_update";
@@ -53,6 +53,7 @@ class FormUser extends Component
             $this->email = $user->email;
             $this->user_rol_id = $user->user_rol_id;
         }
+        $this->profile = $profile;
         $this->user = $user;
     }
 

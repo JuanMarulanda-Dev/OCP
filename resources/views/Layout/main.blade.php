@@ -93,7 +93,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Mi perfil</a>
+                                <a class="dropdown-item" href="{{ route('usuarios.profile') }}"><i data-feather="user"></i> Mi perfil</a>
                                 <a class="dropdown-item" href="#"><i data-feather="mail"></i> Mis proyectos</a>
                                 <div class="dropdown-divider"></div>
                                 @livewire('logout')
