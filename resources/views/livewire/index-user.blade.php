@@ -1,3 +1,4 @@
+<div class="table-responsive">
     <table class='table hover' id="table1">
         <thead>
             <tr>
@@ -13,7 +14,12 @@
                 <tr id="{{ $user->id }}">
                     <td>
                         <div class="avatar mr-3">
-                            <img src="{{asset("images/avatar/avatar-s-1.png")}}" alt="" srcset="">
+                            @isset($user->image)
+                                <img src="{{env('AWS_URL_BUCKET').$user->image->image}}" alt="">
+                            @else
+                                <span class="default-profile-image"><i class="fas fa-user-circle"></i></span>
+                            @endisset
+                            
                         </div>
                         {{ $user->name }}
                     </td>
@@ -34,4 +40,4 @@
             @endforeach
         </tbody>
     </table>
-
+</div>

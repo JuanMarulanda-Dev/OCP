@@ -6,7 +6,6 @@ use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -47,6 +46,9 @@ class FormUser extends Component
         if(isset($user)){
             $this->action = "submit_user_update";
             $this->name = $user->name;
+            if(isset($user->image)){
+                $this->image = $user->image->image;
+            }
             $this->last_name = $user->last_name;
             $this->company = $user->company;
             $this->profession = $user->profession;
@@ -167,7 +169,7 @@ class FormUser extends Component
 
     public function upload_image()
     {
-        return $this->image->store('ocp_user_avatars', 's3');
+        return $this->image->store(env('AWS_FOLDER_IMG'), 's3');
     }
 
     public function cleanAllFields()

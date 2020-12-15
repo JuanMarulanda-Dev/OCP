@@ -510,6 +510,10 @@ table.dataTable.hover tbody tr:hover .actions{
   float: right;
   padding-right: 0;
 }
+.default-profile-image i{
+  font-size: 2rem;
+}
+
 
 /** 2.8 Dropdowns **/
 .dropdown-toggle:after {
