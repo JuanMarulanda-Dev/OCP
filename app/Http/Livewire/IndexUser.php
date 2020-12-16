@@ -31,7 +31,7 @@ class IndexUser extends Component
 
     public function render()
     {
-        $users = User::all();
+        $users = User::with('image', 'user_rol')->get();
         return view('livewire.index-user', [
             'users' => $users
         ]);

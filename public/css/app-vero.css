@@ -1353,9 +1353,8 @@ table.dataTable.hover tbody tr:hover .actions{
 }
 
 /* Form User */
-.img-user>div:first-child{
-  width: 200px;
-  height: 200px;
+.img-user>div:first-child, 
+.img-project>div:first-child{
   background-color: #bdbdbd;
   display: flex;
   overflow: hidden;
@@ -1367,7 +1366,17 @@ table.dataTable.hover tbody tr:hover .actions{
   justify-content: center;
 }
 
-.img-user>button{
+.img-user>div:first-child{
+  width: 200px;
+  height: 200px;
+}
+
+.img-project>div:first-child{
+  width: 300px;
+  height: 300px;
+}
+
+.img-user>button, .img-project>button{
   margin: -4rem 1rem 0 0;
   border-radius: 50%;
   height: 3.5rem;
@@ -1376,7 +1385,7 @@ table.dataTable.hover tbody tr:hover .actions{
   border: none;
 }
 
-.img-user img{
+.img-user img, .img-project img{
   width: 100%;
   height: 100%;
   object-fit: cover;

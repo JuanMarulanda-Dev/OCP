@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view("Modules/Users/index");
+        return view("Modules/Projects/index");
     }
 
     /**
@@ -25,7 +24,7 @@ class UsersController extends Controller
     public function create()
     {
         
-        return view("Modules/Users/create");
+        return view("Modules/Projects/create");
     }
 
     /**
@@ -47,8 +46,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id', $id)->with('image', 'user_rol')->first();
-        return view("Modules/Users/show", [ 'user' => $user]);
+        // $user = User::find($id);
+        // return view("Modules/Users/show", [ 'user' => $user]);
     }
 
     /**

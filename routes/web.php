@@ -32,5 +32,7 @@ Route::middleware('auth')->group(function (){
     
     Route::resource('/usuarios', App\Http\Controllers\UsersController::class);
 
+    Route::resource('/proyectos', App\Http\Controllers\ProjectController::class);
+
 });
 

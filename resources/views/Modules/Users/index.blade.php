@@ -166,7 +166,5 @@
         });
 
     </script>
-    {{-- <script src="{{asset("vendors/simple-datatables/simple-datatables.js") }}">
-    </script>
-    <script src="{{ asset("js/vendors.js") }}"></script> --}}
+    
 @endpush

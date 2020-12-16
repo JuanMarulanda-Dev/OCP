@@ -45,7 +45,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route('proyectos.index') }}" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
                                 <span>Proyectos</span>
                             </a>
@@ -89,7 +89,11 @@
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
                                 <div class="avatar mr-1">
-                                    <img src="{{asset("images/avatar/avatar-s-1.png")}}" alt="" srcset="">
+                                    @isset(Auth::user()->image)
+                                        <img src="{{env('AWS_URL_BUCKET').Auth::user()->image->image}}" alt="">
+                                    @else
+                                        <span class="default-profile-image"><i class="fas fa-user-circle"></i></span>
+                                    @endisset
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
