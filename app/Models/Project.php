@@ -8,4 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'first_date',
+        'last_date',
+        'project_type_id',
+        'project_status_id',
+        'progress',
+        'description'
+    ];
+
+    public function project_type()
+    {
+        return $this->belongsTo(ProjectType::class);
+    }
+
+    public function project_status()
+    {
+        return $this->belongsTo(ProjectStatus::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

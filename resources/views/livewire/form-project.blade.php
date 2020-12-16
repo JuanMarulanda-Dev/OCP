@@ -78,24 +78,30 @@
                 <div class="col-md-4 col-12">
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="rol-user">Tipo de proyecto</label>
+                            <label for="type_id">Tipo de proyecto</label>
                         </div>
-                        <select class="form-select" id="rol-user" wire:model="project_type">
+                        <select class="form-select" id="type_id" wire:model="project_type_id">
                             <option selected>Seleccionar...</option>
+                            @foreach ($types as $type)
+                                <option value="{{$type->id}}">{{ $type->type }}</option>
+                            @endforeach
                         </select>
-                        @error('project_type') <span class="error"><small>{{ $message }}</small></span> @enderror
+                        @error('project_type_id') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
                 </div>
 
                 <div class="col-md-4 col-12">
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="rol-user">Estado</label>
+                            <label for="status_id">Estado</label>
                         </div>
-                        <select class="form-select" id="rol-user" wire:model="status">
+                        <select class="form-select" id="status_id" wire:model="project_status_id">
                             <option selected>Seleccionar...</option>
+                            @foreach ($statuses as $status)
+                                <option value="{{$status->id}}">{{ $status->status }}</option>
+                            @endforeach
                         </select>
-                        @error('status') <span class="error"><small>{{ $message }}</small></span> @enderror
+                        @error('project_status_id') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
                 </div>
 
@@ -120,8 +126,14 @@
                 <div class="col-12">
                     <div class="form-group mb-3">
                         <textarea placeholder="Descripción del proyecto" class="form-control" rows="3" wire:model="description"></textarea>
+                        @error('description') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
                 </div>
+            </div>
+
+            <div class="col-12 d-flex justify-content-end">
+                <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                <button type="submit" class="btn btn-primary mr-1 mb-1">@if($project)Actualizar @else Crear @endif Proyecto</button>
             </div>
 
         </div>
