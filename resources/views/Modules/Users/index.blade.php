@@ -56,7 +56,7 @@
     <script>
         $(document).ready(() => {
 
-            let table = $('#table1');
+            let table = $('#tbl-users');
             table.DataTable({
                 "language": {
                     "decimal": ",",

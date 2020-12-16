@@ -1,7 +1,7 @@
 @extends('Layout/main')
 
 @section('css')
-    
+
 @endsection
 
 @section('content')

@@ -37,4 +37,7 @@
             </div>
         </div>
     </div>
+
+    @livewire('form-project-design');
+
 </section>

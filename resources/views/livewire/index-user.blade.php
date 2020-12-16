@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class='table hover' id="table1">
+    <table class='table hover' id="tbl-users">
         <thead>
             <tr>
                 <th>Nombre</th>

@@ -183,7 +183,7 @@ footer {
   opacity: 0;
 }
 
-.actions button{
+.actions button, .add-design{
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -197,8 +197,13 @@ footer {
   color: red!important;
 }
 
-.actions i, #user-form i{
+.actions i, #user-form i, .add-design i{
   line-height: unset;
+}
+
+#FormCollapseDesign .card-body{
+  box-shadow: none;
+  background-color: #f4f7fc;
 }
 
 table.dataTable.hover tbody tr:hover .actions{
