@@ -86,8 +86,8 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex justify-content-between align-items-center">
+                            <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>&nbsp;
                                 <div class="avatar mr-1">
                                     @isset(Auth::user()->image)
                                         <img src="{{env('AWS_URL_BUCKET').Auth::user()->image->image}}" alt="">

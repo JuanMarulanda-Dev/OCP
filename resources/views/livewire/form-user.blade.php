@@ -6,7 +6,7 @@
                 @error('image') <span class="error"><small>{{ $message }}</small></span> @enderror
                 <div class="rounded">
                     @if ($image)
-                        <img class="rounded" src="{{ (substr($image, 0, Str::length(env('AWS_FOLDER_IMG'))) === env('AWS_FOLDER_IMG')) ? env('AWS_URL_BUCKET').$image : $image->temporaryUrl() }}" alt="profile">
+                        <img class="rounded" src="{{ (substr($image, 0, Str::length(env('AWS_FOLDER_IMG'))) === env('AWS_FOLDER_IMG')) ? env('AWS_URL_BUCKET').$image : $image->temporaryUrl() }}" alt="project-image">
                     @else
                         <i class="fas fa-photo-video" style="color: #fff;"></i>
                     @endif
@@ -158,7 +158,15 @@
 
                 <div class="col-12 d-flex justify-content-end">
                     <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
-                    <button type="submit" class="btn btn-primary mr-1 mb-1">@if($user)Actualizar @else Crear @endif Usuario</button>
+                    <button type="submit" class="btn btn-primary mr-1 mb-1">
+                        <div wire:loading wire:target="{{$action}}" class="text-center">
+                            <div class="spinner-border position-relative" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        &nbsp;
+                        @if($user)Actualizar @else Crear @endif Usuario
+                    </button>
                 </div>
             </div>
         </div>

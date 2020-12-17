@@ -4,10 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Image;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormProject extends Component
 {
+    use WithFileUploads;
+
     public $action = "submit_project_create";
 
     public $project, 
@@ -34,6 +38,7 @@ class FormProject extends Component
         //Validate User's Fields
         $validatedData = $this->validate();
 
+        // Validate if the request has a image
         $this->validate([
             'image' => 'file|nullable|max:5024' // 5MB
         ]);
@@ -43,10 +48,13 @@ class FormProject extends Component
 
         if(isset($project)){
 
+            //Project folder for save main image project
+            $ProjectDirectory = "ocp_project_".$project->id."/Fotos y videos";
+
             // Upload Image
             if(isset($this->image)){
 
-                $image_path = $this->upload_image();
+                $image_path = $this->upload_image($ProjectDirectory);
 
                 //Save image route
                 $project->image()->save(Image::factory()->make([
@@ -58,6 +66,11 @@ class FormProject extends Component
             $this->emit('ShowActionFinishedSuccess', "El proyecto fue registrado exitosamente.", "Exitoso!");
         }
 
+    }
+
+    public function upload_image($path)
+    {
+        return $this->image->store($path, 's3');
     }
 
     public function cleanAllFields()

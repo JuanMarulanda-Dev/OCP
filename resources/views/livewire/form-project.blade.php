@@ -7,7 +7,7 @@
                 @error('image') <span class="error"><small>{{ $message }}</small></span> @enderror
                 <div class="rounded">
                     @if ($image)
-                        <img class="rounded" src="" alt="profile">
+                        <img class="rounded" src="{{ $image->temporaryUrl() }}" alt="profile">
                     @else
                         <i class="fas fa-photo-video" style="color: #fff;"></i>
                     @endif
@@ -133,7 +133,15 @@
 
             <div class="col-12 d-flex justify-content-end">
                 <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
-                <button type="submit" class="btn btn-primary mr-1 mb-1">@if($project)Actualizar @else Crear @endif Proyecto</button>
+                <button type="submit" class="btn btn-primary mr-1 mb-1">
+                    <div wire:loading wire:target="{{$action}}" class="text-center">
+                        <div class="spinner-border position-relative" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    &nbsp;
+                    @if($project)Actualizar @else Crear @endif Proyecto
+                </button>
             </div>
 
         </div>

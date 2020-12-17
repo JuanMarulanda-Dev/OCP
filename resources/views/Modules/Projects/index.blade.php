@@ -18,11 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-            {{-- @livewire('index-user') --}}
-        </div>
-    </div>
+    @livewire('index-project')
 
 </section>
 

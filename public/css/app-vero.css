@@ -197,8 +197,27 @@ footer {
   color: red!important;
 }
 
-.actions i, #user-form i, .add-design i{
+.actions i, 
+#user-form i, 
+.add-design i,
+#project-filter,
+.project-icon i
+{
   line-height: unset;
+}
+
+.project-icon{
+  width: 3rem;
+  height: 3rem;
+}
+
+.content-project{
+  min-height: 20rem;
+}
+
+.projects-section .card:hover{
+  transition: .2s;
+  transform: scale(1.02);
 }
 
 #FormCollapseDesign .card-body{
