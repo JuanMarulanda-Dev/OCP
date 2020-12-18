@@ -215,9 +215,13 @@ footer {
   min-height: 20rem;
 }
 
+.projects-section .card{
+  transition: transform .2s;
+}
+
 .projects-section .card:hover{
-  transition: .2s;
-  transform: scale(1.02);
+  transform: scale(1.025);
+  cursor: pointer;
 }
 
 #FormCollapseDesign .card-body{
