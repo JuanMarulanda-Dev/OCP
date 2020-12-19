@@ -62,8 +62,13 @@ class FormProject extends Component
                 ]));
 
             }
-            //Emit event that show message action
-            $this->emit('ShowActionFinishedSuccess', "El proyecto fue registrado exitosamente.", "Exitoso!");
+            
+            // Message by toastr
+            session()->flash('body', 'El proyecto fue creado exitosamente.');
+            session()->flash('title', 'Exitoso!');
+
+            return redirect()->to(route('proyectos.show', $project->id));
+
         }
 
     }

@@ -112,13 +112,9 @@
     <script>
         $(document).ready(function () {
 
-            Livewire.on('ShowActionFinishedSuccess', (body, title) => {
-                toastr.success(body, title)
-            });
-
-            Livewire.on('ShowProfileImage', () => {
-                $("#image").click();
-            });
+            @if(session()->has('body') && session()->has('title'))
+                toastr.success("{{ session('body') }}", "{{ session('title') }}")
+            @endif
 
             $('#seemore').on('click', function (e) {
                 e.preventDefault()

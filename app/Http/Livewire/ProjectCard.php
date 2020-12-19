@@ -13,8 +13,12 @@ class ProjectCard extends Component
 
     public function destroyProject()
     {
+        // Destroy project folder from S3
+
+        // Destroy project completely
         Project::destroy($this->project->id);
         
+        // Message by toastr
         session()->flash('body', 'El proyecto fue eliminado exitosamente.');
         session()->flash('title', 'Exitoso!');
 
