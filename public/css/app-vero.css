@@ -202,6 +202,10 @@ footer {
   height: 3rem;
 }
 
+#projects-table tbody tr th:first-child{
+  width: 25rem;
+}
+
 .actions i, 
 #user-form i, 
 .add-design i,

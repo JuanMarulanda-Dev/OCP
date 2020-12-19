@@ -21,18 +21,18 @@
                         aria-controls="home" aria-selected="true">Detalles del proyecto</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
+                    <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
                         aria-controls="profile" aria-selected="false">Archivos</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="user-form" role="tabpanel" aria-labelledby="home-tab">
-                    <!-- // Basic multiple Column Form section start -->
-                    @livewire('form-project', ['project' => null, 'profile' => null])
-                    <!-- // Basic multiple Column Form section end -->
+
+                    @livewire('form-project', ['project' => null])
+
                 </div>
                 <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="home-tab">
-
+                    Esta no se va a mostrar por el momento.
                 </div>
             </div>
         </div>
