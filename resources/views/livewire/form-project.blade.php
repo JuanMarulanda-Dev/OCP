@@ -12,7 +12,7 @@
                         <i class="fas fa-photo-video" style="color: #fff;"></i>
                     @endif
                 </div>
-                <input id="image" type="file" class="d-none" name="user-photo" accept="image/*" wire:model="image">
+                <input id="image" type="file" class="d-none" name="project-photo" accept="image/*" wire:model="image">
                 <div wire:loading wire:target="image" class="text-center">
                     <div class="spinner-border text-primary position-relative" role="status">
                         <span class="sr-only">Loading...</span>

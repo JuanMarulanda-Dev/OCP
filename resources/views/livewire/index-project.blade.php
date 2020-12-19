@@ -23,9 +23,12 @@
     {{-- Pendiente ya que no quiere funcionar --}}
     @forelse($projects as $project)
     
-        @include('Modules.Projects.project-card', [
-            'project' => $project
-        ])
+        <div class="col-lg-6 col-md-12">
+            @include('Modules.Projects.project-card', [
+                'project' => $project
+            ])
+        </div>
+
     @empty
 
         No hay proyectos

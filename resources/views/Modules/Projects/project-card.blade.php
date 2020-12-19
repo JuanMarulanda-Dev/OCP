@@ -1,4 +1,3 @@
-<div class="col-lg-6 col-md-12">
     <a class="card text-decoration-none" href="{{ route('proyectos.show', $project->id) }}">
         <div class="card-body">
             <div class="content-project">
@@ -68,4 +67,3 @@
             </div>
         </div>
     </a>
-</div>
