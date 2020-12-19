@@ -29,16 +29,16 @@
                 <div class="files-sections">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-lg-2">
                                 @include('Modules.Projects.item')
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-lg-2">
                                 @include('Modules.Projects.item')
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-lg-2">
                                 @include('Modules.Projects.item')
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-lg-2">
                                 @include('Modules.Projects.item')
                             </div>
                         </div>

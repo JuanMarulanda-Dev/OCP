@@ -18,30 +18,10 @@
             </div>
         </div>
     </div>
+    
     @livewire('index-project')
 
 </section>
-
-<div class="modal fade" id="confirmDeleteProject" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button wire:click="destroy" type="button" class="btn btn-primary">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection
 
@@ -52,9 +32,9 @@
     <script>
         $(document).ready(() => {
 
-            Livewire.on('showConfirmActionDeleteUser', () => {
-                $('#confirmDeleteProject').modal();
-            });
+            @if(session()->has('body') && session()->has('title'))
+                toastr.success("{{ session('body') }}", "{{ session('title') }}")
+            @endif
 
         });
 

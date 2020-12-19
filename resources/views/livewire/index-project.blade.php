@@ -24,14 +24,14 @@
     @forelse($projects as $project)
     
         <div class="col-lg-6 col-md-12">
-            @include('Modules.Projects.project-card', [
-                'project' => $project
-            ])
+            @livewire('project-card', ['project' => $project], key($project->id))
         </div>
 
     @empty
 
-        No hay proyectos
+        <div class="text-center">
+            No hay proyectos
+        </div>
 
     @endforelse
 
