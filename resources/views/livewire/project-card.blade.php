@@ -3,12 +3,18 @@
         <div class="content-project">
             <div class="row">
                 <div class="col-md-2">
-                    <div class="d-flex justify-content-center align-items-center rounded bg-secondary text-white project-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    @isset($project->image)
+                        <div class="project-image">
+                            <img class="rounded" src="{{env('AWS_URL_BUCKET').$project->image->image}}" alt="">
+                        </div>
+                    @else
+                        <div class="d-flex justify-content-center align-items-center rounded bg-secondary text-white project-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    @endisset
                 </div>
-                <div class="col-md-10">
-                    <div>
+                <div class="col-11 col-md-10">
+                    <div class="text-wrap">
                         {{ $project->name }}
                     </div>
                     <div class="small">

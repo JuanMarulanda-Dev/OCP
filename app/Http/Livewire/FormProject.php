@@ -49,7 +49,7 @@ class FormProject extends Component
         if(isset($project)){
 
             //Project folder for save main image project
-            $ProjectDirectory = "ocp_project_".$project->id."/Fotos y videos";
+            $ProjectDirectory = env('AWS_PREFIX_PROJECT_FOLDER').$project->id."/Fotos y videos";
 
             // Upload Image
             if(isset($this->image)){

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class ProjectCard extends Component
@@ -14,15 +15,21 @@ class ProjectCard extends Component
     public function destroyProject()
     {
         // Destroy project folder from S3
+        $status = Storage::disk('s3')->deleteDirectory(env('AWS_PREFIX_PROJECT_FOLDER').$this->project->id);
 
-        // Destroy project completely
-        Project::destroy($this->project->id);
-        
-        // Message by toastr
-        session()->flash('body', 'El proyecto fue eliminado exitosamente.');
-        session()->flash('title', 'Exitoso!');
+        if($status){
+            // Delete Row from project image table
+            $this->project->image()->delete();
 
-        return redirect()->to(route('proyectos.index'));
+            // Destroy project completely
+            Project::destroy($this->project->id);
+            
+            // Message by toastr
+            session()->flash('body', 'El proyecto fue eliminado exitosamente.');
+            session()->flash('title', 'Exitoso!');
+
+            return redirect()->to(route('proyectos.index'));
+        }
 
     }
 

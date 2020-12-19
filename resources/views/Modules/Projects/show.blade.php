@@ -56,11 +56,11 @@
 
                 <div class="row">
 
-                    <div class="col-md-8">
+                    <div class="col-lg-8 col-md-12">
                         @livewire('project-card', ['project' => $project], key($project->id))
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-md-12">
                         @include('Modules.Projects.file-section')
                     </div>
 
