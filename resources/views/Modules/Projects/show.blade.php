@@ -126,23 +126,27 @@
                 return false;
             });
 
-            $(document).mousedown(function(e){ 
-                if(e.button == 0){
-                    $(".menucontext").hide('fast')
-                }
+            Livewire.on('showConfirmActionDeletePath', () => {
+                $("#confirDeleteItem").modal();
             });
 
-            $(".section-project-item").mousedown(function(e) {
+        });
+
+        $(document).mousedown(function(e){ 
+            if(e.button == 0){
                 $(".menucontext").hide('fast')
-                if (e.button == 2){
-                    console.log($(e.currentTarget).find(".menucontext"));
-                    $(e.currentTarget).find(".menucontext").css("top", e.pageY - 325);
-                    $(e.currentTarget).find(".menucontext").css("left", e.pageX - 280);
-                    $(e.currentTarget).find(".menucontext").show('fast');
+            }
+        });
 
-                }
-            });
+        $(".section-project-item").mousedown(function(e) {
+            $(".menucontext").hide('fast')
+            if (e.button == 2){
+                console.log($(e.currentTarget).find(".menucontext"));
+                $(e.currentTarget).find(".menucontext").css("top", e.pageY - 325);
+                $(e.currentTarget).find(".menucontext").css("left", e.pageX - 280);
+                $(e.currentTarget).find(".menucontext").show('fast');
 
+            }
         });
 
     </script>

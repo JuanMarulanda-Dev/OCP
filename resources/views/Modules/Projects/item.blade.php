@@ -24,7 +24,7 @@
 
         @endif
 
-        <button type="button" class="list-group-item list-group-item-action" wire:click="confirDeleteItem('{{ $path }}')">
+        <button wire:click="confirDeleteItem('{{ $path }}')" type="button" class="list-group-item list-group-item-action">
             <i class="fas fa-trash-alt text-danger"></i>
             &nbsp;Eliminar
         </button>

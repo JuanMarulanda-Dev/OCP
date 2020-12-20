@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Traits\SearchProjectContet;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,7 +11,9 @@ class FormProjectFile extends Component
 {
     use SearchProjectContet;
     
-    public $project, $project_folder, $route_content="/";
+    public $project, $project_folder, $route_content="/", $pathToDelete = "";
+
+    protected $listeners = ['destroyPath'];
 
     public function amout($project, $project_folder)
     {
@@ -93,6 +96,26 @@ class FormProjectFile extends Component
             return 0;
         }
     }
+
+    public function confirDeleteItem($pathToDelete)
+    {
+        $this->pathToDelete = $pathToDelete;
+        $this->emit('showConfirmActionDeletePath');
+    }
+
+    public function destroyPath()
+    {
+        if($this->isFolderOrFile($this->pathToDelete) == 0){
+            // Eliminar Folder
+            Storage::disk("s3")->deleteDirectory($this->pathToDelete);
+        }else{
+            //Eliminar File
+            Storage::disk("s3")->delete($this->pathToDelete);
+            // dd($this->pathToDelete);
+        }
+        
+    }
+
 
     public function render()
     {
