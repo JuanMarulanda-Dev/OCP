@@ -33,4 +33,13 @@ class Project extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function users()
+    {
+        return $this->hasManyThrough(User::class, 
+                                    Assignment::class,
+                                    'project_id',
+                                    'id','id',
+                                    'user_id'); // Un proyecto tiene muchos usuarios a travez de assignment
+    }
 }

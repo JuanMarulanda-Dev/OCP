@@ -55,4 +55,13 @@ class User extends Authenticatable
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function projects()
+    {
+        return $this->hasManyThrough(Project::class, 
+                                    Assignment::class,
+                                    'user_id',
+                                    'id','id',
+                                    'project_id'); // Un usuario tiene muchos proyectos a travez de assignment
+    }
 }
