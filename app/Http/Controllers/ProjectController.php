@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Traits\SearchProjectContet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
+
 class ProjectController extends Controller
 {
+    use SearchProjectContet;
     /**
      * Display a listing of the resource.
      *
@@ -50,26 +53,15 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
-        
+
         $project_folder = env('AWS_PREFIX_PROJECT_FOLDER'). $project->id;
 
-        $folders = Storage::disk('s3')->directories($project_folder);
-        $files = Storage::disk('s3')->files($project_folder);
-
-        
-        if($files == [] || $folders == []){
-            if($files == []){
-                $content = $folders;
-            }else{
-                $content = $files;
-            }
-        }else{
-            $content = Arr::prepend($folders, $files);
-        }
+        $content = $this->search_project_content($project_folder);
         
         return view("Modules/Projects/show", [ 
             'project' => $project,
-            'project_content' => Arr::sort($content)]);
+            'project_folder' => $project_folder,
+            'project_content' => $content]);
     }
 
     /**

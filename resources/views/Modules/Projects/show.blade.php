@@ -80,7 +80,8 @@
                         <h4>{{ $project->name }}</h4>
                     </div>
                 </div>
-                @livewire('form-project-file', ['project' => $project, 'project_content' => $project_content] , key($project->id))
+                @livewire('form-project-file', ['project' => $project, 
+                                                'project_folder' => $project_folder] , key($project->id))
 
             </div>
         </div>
