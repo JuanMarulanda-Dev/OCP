@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-12">
-                        @include('Modules.Projects.file-section')
+                        @include('Modules.Projects.file-section', ['project_content' => $project_content])
                     </div>
 
                 </div>
@@ -80,7 +80,7 @@
                         <h4>{{ $project->name }}</h4>
                     </div>
                 </div>
-                @livewire('form-project-file', ['project' => $project] , key($project->id))
+                @livewire('form-project-file', ['project' => $project, 'project_content' => $project_content] , key($project->id))
 
             </div>
         </div>

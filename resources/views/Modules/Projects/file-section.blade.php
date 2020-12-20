@@ -9,30 +9,29 @@
             <div class="row">
                 <div class="col-12">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex align-items-center">
-                            <div>
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div>
-                                Cras justo odio
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center">
-                            <div>
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div>
-                                Cras justo odio
-                            </div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-center">
-                            <div>
-                                <i class="fas fa-folder"></i>
-                            </div>
-                            <div>
-                                Cras justo odio
-                            </div>
-                        </li>
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach($project_content as $project_item)
+                            @if ($i <= 2)
+                                <li class="list-group-item d-flex align-items-center">
+                                    <div>
+                                        {{-- Validate cual icono se va a mostrar --}}
+                                        <i class="fas fa-folder"></i>
+                                    </div>
+                                    <div>
+                                        {{-- Funcion para obtener el nombre --}}
+                                        {{-- {{ Str::of($project_item)->split('///') }} --}}
+                                        {{ $project_item }}
+                                    </div>
+                                </li>
+                                @php
+                                    $i++;
+                                @endphp
+                            @else
+                                @break;
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </div>

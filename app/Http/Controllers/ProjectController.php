@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -48,7 +50,26 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Project::find($id);
-        return view("Modules/Projects/show", [ 'project' => $project]);
+        
+        $project_folder = env('AWS_PREFIX_PROJECT_FOLDER'). $project->id;
+
+        $folders = Storage::disk('s3')->directories($project_folder);
+        $files = Storage::disk('s3')->files($project_folder);
+
+        
+        if($files == [] || $folders == []){
+            if($files == []){
+                $content = $folders;
+            }else{
+                $content = $files;
+            }
+        }else{
+            $content = Arr::prepend($folders, $files);
+        }
+        
+        return view("Modules/Projects/show", [ 
+            'project' => $project,
+            'project_content' => Arr::sort($content)]);
     }
 
     /**

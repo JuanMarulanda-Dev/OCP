@@ -8,7 +8,7 @@
                         <button class="rounded-circle border-0">
                             <i class="fas fa-arrow-left"></i>
                         </button>
-                        <span style="font-size: 1.5rem;">/</span>
+                        <span style="font-size: 1.5rem;">{{ $route_content }}</span>
                     </div>
                     <div>
                         <button class="btn btn-outline-primary" wire:click="">
@@ -29,18 +29,19 @@
                 <div class="files-sections">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-2">
-                                @include('Modules.Projects.item')
-                            </div>
-                            <div class="col-lg-2">
-                                @include('Modules.Projects.item')
-                            </div>
-                            <div class="col-lg-2">
-                                @include('Modules.Projects.item')
-                            </div>
-                            <div class="col-lg-2">
-                                @include('Modules.Projects.item')
-                            </div>
+
+                            @forelse ($project_content as $item)
+                                <div class="col-lg-2">
+                                    @include('Modules.Projects.item', [
+                                        'name' => null,
+                                        'icon' =>  null,
+                                        
+                                    ])
+                                </div>
+                            @empty
+                                No hay nada de contenido
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
