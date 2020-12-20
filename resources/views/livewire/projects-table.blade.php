@@ -38,7 +38,7 @@
                         <td class="d-flex justify-content-center">
                             <div class='form-check'>
                                 <div class="checkbox">
-                                    <input type="checkbox" class='form-check-input' @if (array_key_exists($project->id ,$assignments)) checked @endif>
+                                    <input wire:click="chooseProject('{{ $project->id }}')" type="checkbox" class='form-check-input' @if(Arr::exists($assignments, $project->id)) checked @endif>
                                 </div>
                             </div>
                         </td>
@@ -62,8 +62,8 @@
 
     <div class="col-12 d-flex justify-content-end">
         <button wire:click="" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
-        <button type="submit" class="btn btn-primary mr-1 mb-1">
-            <div wire:loading wire:target="" class="text-center">
+        <button wire:click="saveProjectAssignments" type="button" class="btn btn-primary mr-1 mb-1">
+            <div wire:loading wire:target="saveProjectAssignments" class="text-center">
                 <div class="spinner-border position-relative" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>

@@ -18,7 +18,31 @@ class ProjectsTable extends Component
 
     public function amout($assignments)
     {
-        $this->assignments = $assignments;
+        $this->$assignments = $assignments;
+    }
+
+    public function chooseProject($idProject)
+    {
+        // Queda pendiente
+        // if(!session()->has('assignments')){
+        //     session(['assignments' => $this->assignments]);
+        // }
+
+        // $assignmentsOwn = session()->get('assignments');
+        // // dd($idProject);
+        // if(Arr::exists($assignmentsOwn, $idProject)){
+        //     // Delete selection
+        //     Arr::forget($assignmentsOwn, $idProject);
+        // }else{
+        //     // add selection
+        //     Arr::set($assignmentsOwn, $idProject, 0);
+        // }
+        // dd($assignmentsOwn);
+    }
+
+    public function saveProjectAssignments()
+    {
+        dd("Save Assignments");
     }
 
     public function render()
