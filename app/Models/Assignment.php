@@ -12,6 +12,10 @@ class Assignment extends Model
     public $timestamps = false;
 
     
+    protected $casts = [
+        'project_id' => 'string',
+    ];
+
     public function project()
     {
         return $this->belongsTo(Project::class); // Un Asignación tiene un proyecto

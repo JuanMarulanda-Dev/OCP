@@ -56,6 +56,11 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    public function assignments()
+    {
+        return $this->hasMany(Assignment::class);
+    }
+
     public function projects()
     {
         return $this->hasManyThrough(Project::class, 

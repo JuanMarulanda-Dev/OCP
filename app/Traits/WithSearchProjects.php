@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 trait WithSearchProjects
@@ -14,16 +15,28 @@ trait WithSearchProjects
             if(Auth::user()->user_rol_id == 1){ // Is Admin
     
                 if(isset($this->filter_field)){
-                    return Project::where('name', 'LIKE', "%$this->filter_field%")->with('project_type','project_status')->paginate(10);
+
+                    return Project::where('name', 'LIKE', "%$this->filter_field%")->with('project_type','project_status', 'image');
     
-                    // dd($this->projects);
                 }else{
-                    return Project::with('project_type','project_status')->paginate(10);
+
+                    return Project::with('project_type','project_status', 'image');
+
                 }
     
             }else{
-                //Is is user you only can see your own projects
-                return Project::with('project_type','project_status')->paginate(10);
+
+                //If is user you only can see your own projects
+                if(isset($this->filter_field)){
+
+                    return Auth::user()->projects()->where('name', 'LIKE', "%$this->filter_field%")->with('project_type','project_status', 'image');
+
+                }else{
+                    
+                    return Auth::user()->projects()->with('project_type','project_status', 'image');
+
+                }
+                
             }
     
         }

@@ -33,7 +33,9 @@
                 </div>
                 <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="home-tab">
 
-                    @livewire('projects-table')
+                    @livewire('projects-table', [
+                        'assignments' => $assignments
+                    ])
 
                 </div>
             </div>

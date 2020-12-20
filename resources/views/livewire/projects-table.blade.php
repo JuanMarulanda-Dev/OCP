@@ -38,7 +38,7 @@
                         <td class="d-flex justify-content-center">
                             <div class='form-check'>
                                 <div class="checkbox">
-                                    <input type="checkbox" class='form-check-input' checked>
+                                    <input type="checkbox" class='form-check-input' @if (array_key_exists($project->id ,$assignments)) checked @endif>
                                 </div>
                             </div>
                         </td>

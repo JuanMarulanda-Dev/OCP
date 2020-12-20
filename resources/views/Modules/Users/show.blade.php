@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('Modules.Users.section', ['user' => $user])
+    @include('Modules.Users.section', ['user' => $user, 'assignments' => $assignments])
 
 @endsection
 
