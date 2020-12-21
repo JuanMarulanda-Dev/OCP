@@ -146,6 +146,20 @@
                 return false;
             });
 
+            function copyFileUrl(){
+                $(element).find('a').attr('href').select();
+            }
+
+            $(document).on('click', '.copyFileUrl', function (e) {
+                // $(e.currentTarget).parents('div.section-project-item').find('a').attr('href').select();
+                var $temp = $("<input>");
+                $("body").append($temp);
+                let url = $(e.currentTarget).parents('div.section-project-item').find('a').attr('href');
+                $temp.val(url).select();
+                document.execCommand("copy");
+                $temp.remove();
+            });
+
             $(document).on('mousedown', '.section-project-item', function (e) {
                 $(".menucontext").css('opacity', '0');
                 if (e.button == 2){
@@ -185,10 +199,8 @@
         }
 
         function showFileInOtherWindow(element){
-            // $(element).find('a').trigger("click");
-                let url = $(element).find('a').attr('href');
-                window.open(url);
-            // $(element).find('a').click();
+            let url = $(element).find('a').attr('href');
+            window.open(url);
         }
 
     </script>

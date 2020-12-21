@@ -18,7 +18,7 @@
         style="opacity: 0;">
         @if ($isFolderOrFile == 1)
             
-            <button type="button" wire:click="" class="list-group-item list-group-item-action">
+            <button type="button" class="list-group-item list-group-item-action copyFileUrl">
                 <i class="fas fa-link"></i>
                 &nbsp;Copiar URL
             </button>
