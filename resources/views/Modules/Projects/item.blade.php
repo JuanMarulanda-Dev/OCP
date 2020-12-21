@@ -4,16 +4,23 @@
         <a download="{{ $name }}" class="d-none" target="_blank" href="#"></a>
         
         <span>
-            <i class="{{ $icon }}"></i>
+            @if ($isFolderOrFile == 1)
+            <img class="project-img-size rounded" src="{{ env('AWS_URL_BUCKET').$path }}" alt="project-image">
+            @else
+                <i class="{{ $this->chooseIconForItem($name) }}"></i>
+            @endif
         </span>
         <span>{{ $name }}</span>
+
     </div>
     
     {{-- Menucontex --}}
-    <div class="list-group dropdown-menu p-0 menucontext" role="menu" aria-labelledby="dropdownMenu">
-        @if ($this->isFolderOrFile($name) == 1)
+
+    <div class="list-group p-0 dropdown-menu menucontext" role="menu" aria-hidden="true" data-keyboard="false" tabindex="-1"
+    style="opacity: 0;">
+        @if ($isFolderOrFile == 1)
             
-            <button type="button" class="list-group-item list-group-item-action">
+            <button type="button" wire:click="typemousedown(this)" class="list-group-item list-group-item-action">
                 <i class="fas fa-link"></i>
                 &nbsp;Copiar URL
             </button>
@@ -24,7 +31,7 @@
 
         @endif
 
-        <button wire:click="confirDeleteItem('{{ $path }}')" type="button" class="list-group-item list-group-item-action">
+        <button type="button" class="list-group-item list-group-item-action showDeleteConfirmation" data-path="{{ $path }}">
             <i class="fas fa-trash-alt text-danger"></i>
             &nbsp;Eliminar
         </button>

@@ -30,7 +30,7 @@
                     <div class="container">
 
                         <div class="row">
-                            <div wire:loading class="text-center">
+                            <div wire:target="destroyPath,changePorjectFolder,rollbackProjectFolder,createNewProjcetFolder" wire:loading class="text-center">
                                 <br>
                                 <div class="spinner-border position-relative" role="status">
                                     <span class="sr-only">Loading...</span>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
 
-                        <div class="row" wire:loading.class="d-none">
+                        <div class="row" wire:target="destroyPath,changePorjectFolder,rollbackProjectFolder,createNewProjcetFolder" wire:loading.class="d-none">
                             @forelse ($project_content as $item)
                                 <div class="col-lg-2">
                                     @php
@@ -48,7 +48,7 @@
 
                                     @include('Modules.Projects.item', [
                                         'name' => $nameItem,
-                                        'icon' => $this->chooseIconForItem($nameItem),
+                                        'isFolderOrFile' => $this->isFolderOrFile($nameItem),
                                         'path' => $item
                                     ])
 
@@ -77,7 +77,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-                <button onclick="Livewire.emit('destroyPath')" data-dismiss="modal" type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                <button onclick="emitEventDestroy()" data-dismiss="modal" type="button" class="btn btn-danger btn-sm">Eliminar</button>
             </div>
         </div>
     </div>

@@ -12,7 +12,7 @@ class FormProjectFile extends Component
 {
     use SearchProjectContet, WithFileUploads;
     
-    public $project, $file, $project_folder, $route_content="/", $pathToDelete = "";
+    public $project, $file, $project_folder, $route_content="/";
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
 
@@ -101,22 +101,17 @@ class FormProjectFile extends Component
         }
     }
 
-    public function confirDeleteItem($pathToDelete)
+    public function destroyPath($pathToDelete)
     {
-        $this->pathToDelete = $pathToDelete;
-        $this->emit('showConfirmActionDeletePath');
-    }
-
-    public function destroyPath()
-    {
-        if($this->isFolderOrFile($this->pathToDelete) == 0){
+        if($this->isFolderOrFile($pathToDelete) == 0){
             // Eliminar Folder
-            Storage::disk("s3")->deleteDirectory($this->pathToDelete);
+            Storage::disk("s3")->deleteDirectory($pathToDelete);
         }else{
             //Eliminar File
-            Storage::disk("s3")->delete($this->pathToDelete);
-            // dd($this->pathToDelete);
+            Storage::disk("s3")->delete($pathToDelete);
         }
+
+        $this->emit('ShowActionFinishedSuccess', 'El archivo fue eliminado.', 'Exitoso!');
         
     }
 

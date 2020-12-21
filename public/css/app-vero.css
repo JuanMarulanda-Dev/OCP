@@ -222,6 +222,11 @@ footer {
   cursor: pointer;
 }
 
+.project-img-size{
+  width: 7rem;
+  height: 7rem;
+}
+
 .project-item span{
   max-width: 100%;
   display: -webkit-box;

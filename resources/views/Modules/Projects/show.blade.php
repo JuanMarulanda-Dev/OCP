@@ -122,11 +122,20 @@
 @push('scripts')
 
     <script>
+
+        let path;
+
         $(document).ready(function () {
 
             @if(session()->has('body') && session()->has('title'))
                 toastr.success("{{ session('body') }}", "{{ session('title') }}")
             @endif
+
+            $(document).on('click', '.showDeleteConfirmation', function (e) {
+                e.preventDefault();
+                path = $(e.currentTarget).data('path');
+                $('#confirDeleteItem').modal('show');
+            });
 
             $('#seemore').on('click', function (e) {
                 e.preventDefault()
@@ -136,6 +145,23 @@
             $(document).bind("contextmenu", function(e){  
                 return false;
             });
+
+            $(document).on('mousedown', '.section-project-item', function (e) {
+                $(".menucontext").css('opacity', '0');
+                if (e.button == 2){
+                    console.log($(e.currentTarget).find(".menucontext"));
+                    $(e.currentTarget).find(".menucontext").css("top", e.pageY - 325);
+                    $(e.currentTarget).find(".menucontext").css("left", e.pageX - 280);
+                    $(e.currentTarget).find(".menucontext").css('opacity', '1');
+                }
+            });
+
+            $(document).mousedown(function(e){ 
+                if(e.button == 0){
+                    $(".menucontext").css('opacity', '0');
+                }
+            });
+
 
             Livewire.on('ShowChooseFile', () => {
                 $("#file").click();
@@ -155,22 +181,9 @@
 
         });
 
-        $(document).mousedown(function(e){ 
-            if(e.button == 0){
-                $(".menucontext").hide('fast')
-            }
-        });
-
-        $(".section-project-item").mousedown(function(e) {
-            $(".menucontext").hide('fast')
-            if (e.button == 2){
-                console.log($(e.currentTarget).find(".menucontext"));
-                $(e.currentTarget).find(".menucontext").css("top", e.pageY - 325);
-                $(e.currentTarget).find(".menucontext").css("left", e.pageX - 280);
-                $(e.currentTarget).find(".menucontext").show('fast');
-
-            }
-        });
+        function emitEventDestroy(){
+            Livewire.emit('destroyPath', path);
+        }
 
     </script>
     
