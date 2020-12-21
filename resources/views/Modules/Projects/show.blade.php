@@ -137,6 +137,10 @@
                 return false;
             });
 
+            Livewire.on('ShowChooseFile', () => {
+                $("#file").click();
+            });
+
             Livewire.on('ShowActionFinishedSuccess', (body, title) => {
                 toastr.success(body, title)
             });

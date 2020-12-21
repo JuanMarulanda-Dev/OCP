@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <input type="file" class="d-none" accept="*" wire:model="">
+                <input id="file" type="file" class="d-none" accept="*" wire:model="file">
                 <div class="d-flex justify-content-between align-items-center rounded" style="background: #f7f7f7;">
                     <div>
                         <button wire:click="rollbackProjectFolder" class="rounded-circle border-0" @if($route_content == "/") disabled @endif>
@@ -16,7 +16,7 @@
                             &nbsp;&nbsp;&nbsp;
                             Nueva Carpeta
                         </button>
-                        <button class="btn btn-outline-primary" wire:click="">
+                        <button class="btn btn-outline-primary" wire:click="$emit('ShowChooseFile')">
                             <i class="fas fa-cloud-upload-alt"></i>
                             &nbsp;&nbsp;&nbsp;
                             Subir Archivo

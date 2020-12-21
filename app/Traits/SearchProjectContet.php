@@ -22,7 +22,7 @@ trait SearchProjectContet
                     return $files;
                 }
             }else{
-                return Arr::sort(Arr::prepend($folders, $files));
+                return Arr::sort(array_merge($files, $folders));
             }
             
         }

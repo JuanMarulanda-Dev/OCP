@@ -6,12 +6,13 @@ use App\Traits\SearchProjectContet;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
 
 class FormProjectFile extends Component
 {
-    use SearchProjectContet;
+    use SearchProjectContet, WithFileUploads;
     
-    public $project, $project_folder, $route_content="/", $pathToDelete = "";
+    public $project, $file, $project_folder, $route_content="/", $pathToDelete = "";
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
 
@@ -21,9 +22,9 @@ class FormProjectFile extends Component
         $this->project_folder = $project_folder;
     }
 
-    public function uploadNewItem($directory)
+    public function uploadNewItem()
     {
-        # code...
+        return $this->file->store($this->project_folder, 's3');
     }
 
     public function createNewProjcetFolder($nameNewFolder)
@@ -122,6 +123,12 @@ class FormProjectFile extends Component
 
     public function render()
     {
+        if(isset($this->file)){
+            $this->uploadNewItem();
+            $this->emit('ShowActionFinishedSuccess', 'El archivo fue subido.', 'Exitoso!');
+            $this->file = null;
+        }
+
         return view('livewire.form-project-file',[
             'project_content' => $this->search_project_content($this->project_folder)
         ]);

@@ -14,14 +14,13 @@
                         @endphp
                         @foreach($project_content as $project_item)
                             @if ($i <= 2)
-                                <li class="list-group-item d-flex align-items-center">
+                                <li class="list-group-item d-flex align-items-center overflow-hidden">
                                     <div>
                                         {{-- Validate cual icono se va a mostrar --}}
                                         <i class="fas fa-folder"></i>
                                     </div>
                                     <div>
                                         {{-- Funcion para obtener el nombre --}}
-                                        {{-- {{ Str::of($project_item)->split('///') }} --}}
                                         {{ $project_item }}
                                     </div>
                                 </li>
