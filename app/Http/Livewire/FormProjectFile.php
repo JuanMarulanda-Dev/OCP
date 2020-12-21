@@ -24,6 +24,7 @@ class FormProjectFile extends Component
 
     public function uploadNewItem()
     {
+        // Validar el tamaño de la imagen, que no sea mayor a 5 MB
         return $this->file->store($this->project_folder, 's3');
     }
 
@@ -33,11 +34,6 @@ class FormProjectFile extends Component
         $this->emitTo('project-modal-create-new-folder', 'cleanField');
         $this->emit('ShowActionFinishedSuccess', 'La carpeta fue creada.', 'Exitoso!');
         $this->emit('HiddeCreateNewFolderModal');
-    }
-
-    public function nameProjectItem($item)
-    {
-        
     }
 
     public function changePorjectFolder($path)
@@ -115,6 +111,10 @@ class FormProjectFile extends Component
         
     }
 
+    public function downloadFile($pathToDownload)
+    {
+        return Storage::disk('s3')->download($pathToDownload);
+    }
 
     public function render()
     {

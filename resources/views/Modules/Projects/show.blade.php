@@ -162,7 +162,6 @@
                 }
             });
 
-
             Livewire.on('ShowChooseFile', () => {
                 $("#file").click();
             });
@@ -183,6 +182,13 @@
 
         function emitEventDestroy(){
             Livewire.emit('destroyPath', path);
+        }
+
+        function showFileInOtherWindow(element){
+            // $(element).find('a').trigger("click");
+                let url = $(element).find('a').attr('href');
+                window.open(url);
+            // $(element).find('a').click();
         }
 
     </script>
