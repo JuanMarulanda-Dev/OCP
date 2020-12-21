@@ -11,7 +11,7 @@
                         <span style="font-size: 1.5rem;">{{ $route_content }}</span>
                     </div>
                     <div>
-                        <button class="btn btn-outline-primary" wire:click="">
+                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#createNewFolder">
                             <i class="fas fa-folder-plus"></i>
                             &nbsp;&nbsp;&nbsp;
                             Nueva Carpeta

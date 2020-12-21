@@ -13,7 +13,7 @@ class FormProjectFile extends Component
     
     public $project, $project_folder, $route_content="/", $pathToDelete = "";
 
-    protected $listeners = ['destroyPath'];
+    protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
 
     public function amout($project, $project_folder)
     {
@@ -26,9 +26,12 @@ class FormProjectFile extends Component
         # code...
     }
 
-    public function createNewProjcetFolder()
+    public function createNewProjcetFolder($nameNewFolder)
     {
-        # code...
+        Storage::disk("s3")->makeDirectory($this->project_folder."/".$nameNewFolder);
+        $this->emitTo('project-modal-create-new-folder', 'cleanField');
+        $this->emit('ShowActionFinishedSuccess', 'La carpeta fue creada.', 'Exitoso!');
+        $this->emit('HiddeCreateNewFolderModal');
     }
 
     public function nameProjectItem($item)

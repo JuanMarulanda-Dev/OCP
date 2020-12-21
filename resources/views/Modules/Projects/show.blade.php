@@ -88,6 +88,17 @@
 
     </section>
 
+
+    <div class="modal fade" id="createNewFolder" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                @livewire('project-modal-create-new-folder')
+            </div>
+        </div>
+    </div>
+    
+
     <div class="modal fade" id="confirmDeleteProject" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -124,6 +135,14 @@
 
             $(document).bind("contextmenu", function(e){  
                 return false;
+            });
+
+            Livewire.on('ShowActionFinishedSuccess', (body, title) => {
+                toastr.success(body, title)
+            });
+
+            Livewire.on('HiddeCreateNewFolderModal', (body, title) => {
+                $('#createNewFolder').modal('hide')
             });
 
             Livewire.on('showConfirmActionDeletePath', () => {
