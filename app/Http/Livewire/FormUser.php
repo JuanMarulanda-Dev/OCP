@@ -16,7 +16,7 @@ class FormUser extends Component
 
     public $action = "submit_user_create";
 
-    public $user, $profile, $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image;
+    public $user, $profile, $name, $last_name, $company, $profession, $phone, $email, $password, $user_rol_id , $image, $folder_img;
 
     protected $rules = [
         'name' => 'required|string',
@@ -57,6 +57,7 @@ class FormUser extends Component
             $this->email = $user->email;
             $this->user_rol_id = $user->user_rol_id;
         }
+        $this->folder_img = env('AWS_FOLDER_IMG', 'ocp_user_avatars');
         $this->profile = $profile;
         $this->user = $user;
     }
@@ -170,7 +171,7 @@ class FormUser extends Component
 
     public function upload_image()
     {
-        return $this->image->store(env('AWS_FOLDER_IMG'), 's3');
+        return $this->image->store($this->folder_img, 's3');
     }
 
     public function cleanAllFields()

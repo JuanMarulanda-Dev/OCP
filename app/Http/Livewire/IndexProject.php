@@ -11,12 +11,14 @@ class IndexProject extends Component
 {
     use WithSearchProjects, WithPagination;
 
-    public $filter_field= "";
+    public $filter_field;
+
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
         return view('livewire.index-project', [
-            'projects' => $this->search_project_by_all_fieldes()->paginate(10)
+            'projects' => $this->search_project_by_all_fieldes()->paginate(5)
         ]);
     }
 
