@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content_type;
 use App\Models\Project;
+use App\Models\Template;
 use App\Traits\SearchProjectContet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -29,8 +31,13 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        
-        return view("Modules/Projects/create");
+        $templates = Template::all();
+        $content_types = Content_type::all();
+
+        return view("Modules/Projects/create", [
+            'templates' => $templates,
+            'content_types' => $content_types,
+        ]);
     }
 
     /**
@@ -74,8 +81,13 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         
+        $templates = Template::all();
+        $content_types = Content_type::all();
+
         return view("Modules/Projects/edit", [ 
             'project' => $project,
+            'templates' => $templates,
+            'content_types' => $content_types,
             ]);
         }
 

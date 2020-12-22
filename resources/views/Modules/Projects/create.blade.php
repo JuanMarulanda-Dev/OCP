@@ -6,7 +6,11 @@
 
 @section('content')
 
-    @include('Modules.Projects.section', ['project' => null, 'profile' => null])
+    @include('Modules.Projects.section', [
+        'project' => null, 
+        'templates' => $templates,
+        'content_types' => $content_types,
+        ])
 
 @endsection
 

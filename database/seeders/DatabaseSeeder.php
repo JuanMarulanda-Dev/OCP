@@ -38,5 +38,18 @@ class DatabaseSeeder extends Seeder
 
         // Projects
         \App\Models\Project::factory()->create();
+
+        // Templates
+        if(\App\Models\Template::count() == 0){
+            \App\Models\Template::factory()->create(['template' => 'Bloque Completo', 'columns' => '1']);
+            \App\Models\Template::factory()->create(['template' => '2 Bloques', 'columns' => '2']);
+            \App\Models\Template::factory()->create(['template' => '3 Bloques', 'columns' => '3']);
+        }
+
+        //Content Type
+        if(\App\Models\Content_type::count() == 0){
+            \App\Models\Content_type::factory()->create(['content' => 'Imagen']);
+        }
+        
     }
 }
