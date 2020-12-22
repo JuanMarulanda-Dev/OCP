@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('Modules.Users.section', ['user' => null, 'profile' => null])
+    @include('Modules.Users.section', ['user' => null, 'profile' => null, 'assignments' => []])
 
 @endsection
 
@@ -24,7 +24,7 @@
             });
         });
     </script>
- 
+
 @endpush
 
 @push('listeners')

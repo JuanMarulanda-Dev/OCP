@@ -13,36 +13,43 @@ class ProjectsTable extends Component
 
     public $filter_field= "";
     public $assignments;
+    public $user;
 
     protected $paginationTheme = 'bootstrap';
 
-    public function amout($assignments)
-    {
-        $this->$assignments = $assignments;
-    }
 
     public function chooseProject($idProject)
     {
-        // Queda pendiente
-        // if(!session()->has('assignments')){
-        //     session(['assignments' => $this->assignments]);
-        // }
 
-        // $assignmentsOwn = session()->get('assignments');
-        // // dd($idProject);
-        // if(Arr::exists($assignmentsOwn, $idProject)){
-        //     // Delete selection
-        //     Arr::forget($assignmentsOwn, $idProject);
-        // }else{
-        //     // add selection
-        //     Arr::set($assignmentsOwn, $idProject, 0);
-        // }
-        // dd($assignmentsOwn);
+        if(Arr::exists($this->assignments, $idProject)){
+            // Delete selection
+            Arr::forget($this->assignments, $idProject);
+        }else{
+            // add selection
+            Arr::set($this->assignments, strval($idProject), $this->user->id);
+        }
+
     }
 
     public function saveProjectAssignments()
     {
-        dd("Save Assignments");
+        // Delete all relationship with all projects
+        $res = true;
+        if(isset($this->user->assignments[0])){
+            $res = $this->user->assignments()->delete();
+        }
+
+        // Save assignments to user
+        if($res){
+            foreach ($this->assignments as $project_id => $user) {
+                $this->user->assignments()->create([
+                    'project_id' => $project_id
+                ]);
+            }
+            
+            //Emit event that show message action
+            $this->emit('ShowActionFinishedSuccess', "El usuario fue registrado exitosamente.", "Exitoso!");
+        }
     }
 
     public function render()

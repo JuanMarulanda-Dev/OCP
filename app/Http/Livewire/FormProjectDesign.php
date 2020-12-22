@@ -9,7 +9,7 @@ class FormProjectDesign extends Component
 
     public $templates, $content_types;
 
-    public function amout($templates, $content_types)
+    public function amout($templates, $content_types) // se llama es mount
     {
         $this->template = $templates;
         $this->content_types = $content_types;

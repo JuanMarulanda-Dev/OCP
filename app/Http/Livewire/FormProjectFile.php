@@ -16,7 +16,7 @@ class FormProjectFile extends Component
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
 
-    public function amout($project, $project_folder)
+    public function amout($project, $project_folder) // se llama es mount
     {
         $this->project = $project;
         $this->project_folder = $project_folder;

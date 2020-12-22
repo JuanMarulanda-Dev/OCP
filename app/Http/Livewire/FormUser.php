@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Image;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -188,6 +189,9 @@ class FormUser extends Component
 
     public function render()
     {
+        // dd($this->image ,substr($this->image, 0, Str::length(env('AWS_FOLDER_IMG'))));
+        // dd((substr($this->image, 0, Str::length(env('AWS_FOLDER_IMG'))) === env('AWS_FOLDER_IMG')));
+
         $roles = \App\Models\User_rol::all();
         return view('livewire.form-user',[
             'roles' => $roles

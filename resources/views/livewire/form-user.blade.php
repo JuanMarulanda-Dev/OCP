@@ -6,7 +6,7 @@
                 @error('image') <span class="error"><small>{{ $message }}</small></span> @enderror
                 <div class="rounded">
                     @if ($image)
-                        <img class="rounded" src="{{ (substr($image, 0, Str::length(env('AWS_FOLDER_IMG'))) === env('AWS_FOLDER_IMG')) ? env('AWS_URL_BUCKET').$image : $image->temporaryUrl() }}" alt="project-image">
+                        <img class="rounded" src="{{ ( (substr($image, 0, Str::length($folder_img)) === $folder_img) ? env('AWS_URL_BUCKET').$image : $image->temporaryUrl() ) }}" alt="project-image">
                     @else
                         <i class="fas fa-photo-video" style="color: #fff;"></i>
                     @endif

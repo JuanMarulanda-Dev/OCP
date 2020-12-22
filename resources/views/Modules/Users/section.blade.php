@@ -21,7 +21,7 @@
                         aria-controls="home" aria-selected="true">Datos de usuario</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
+                    <a class="nav-link @if(!$user) disabled @endisset" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
                         aria-controls="profile" aria-selected="false">Proyectos asignados</a>
                 </li>
             </ul>
@@ -33,9 +33,14 @@
                 </div>
                 <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="home-tab">
 
-                    @livewire('projects-table', [
-                        'assignments' => $assignments
-                    ])
+                    @isset($user) 
+
+                        @livewire('projects-table', [
+                            'user' => $user,
+                            'assignments' => $assignments
+                        ])
+
+                    @endisset
 
                 </div>
             </div>

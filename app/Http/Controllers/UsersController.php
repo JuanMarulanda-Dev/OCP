@@ -47,7 +47,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('image', 'user_rol')->find($id);
+        $user = User::where('id', $id)->with('image', 'user_rol')->first();
         return view("Modules/Users/show", [ 'user' => $user, 'assignments' => $user->assignments()->pluck("user_id", "project_id")->toArray()]);
     }
 

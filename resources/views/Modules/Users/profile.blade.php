@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-body">
 
-                @livewire('form-user', ['user' => Auth::user(), 'profile' => 1])
+                @livewire('form-user', ['user' => Auth::user(), 'profile' => 1, 'assignments' => []])
 
             </div>
         </div>

@@ -33,7 +33,7 @@ class ProjectCard extends Component
 
     }
 
-    public function amout(Project $project)
+    public function amout(Project $project) // se llama es mount
     {
         $this->project = $project;
     }

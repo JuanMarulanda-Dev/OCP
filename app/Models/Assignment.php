@@ -11,6 +11,11 @@ class Assignment extends Model
 
     public $timestamps = false;
 
+
+    protected $fillable = [
+        'user_id',
+        'project_id',
+    ];
     
     protected $casts = [
         'project_id' => 'string',
