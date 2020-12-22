@@ -28,10 +28,10 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="user-form" role="tabpanel" aria-labelledby="home-tab">
 
-                    @livewire('form-project', ['project' => null])
+                    @livewire('form-project', ['project' => $project])
 
                 </div>
-                <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="home-tab">
                     Esta no se va a mostrar por el momento.
                 </div>
             </div>

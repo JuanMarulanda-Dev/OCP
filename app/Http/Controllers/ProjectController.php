@@ -52,7 +52,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::find($id);
+        $project = Project::with('image')->find($id);
 
         $project_folder = env('AWS_PREFIX_PROJECT_FOLDER'). $project->id;
 
@@ -72,8 +72,12 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $project = Project::find($id);
+        
+        return view("Modules/Projects/edit", [ 
+            'project' => $project,
+            ]);
+        }
 
     /**
      * Update the specified resource in storage.

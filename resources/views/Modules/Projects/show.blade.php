@@ -47,7 +47,7 @@
                             Eliminar
                         </button>
                         &nbsp;
-                        <a href="{{ route("proyectos.create") }}" class="btn icon icon-left btn-primary float-right">
+                        <a href="{{ route("proyectos.edit", $project->id) }}" class="btn icon icon-left btn-primary float-right">
                             <i class="fas fa-pencil-alt"></i>
                             &nbsp;&nbsp;&nbsp;Editar
                         </a>
@@ -151,7 +151,6 @@
             }
 
             $(document).on('click', '.copyFileUrl', function (e) {
-                // $(e.currentTarget).parents('div.section-project-item').find('a').attr('href').select();
                 var $temp = $("<input>");
                 $("body").append($temp);
                 let url = $(e.currentTarget).parents('div.section-project-item').find('a').attr('href');
@@ -163,7 +162,6 @@
             $(document).on('mousedown', '.section-project-item', function (e) {
                 $(".menucontext").css('opacity', '0');
                 if (e.button == 2){
-                    console.log($(e.currentTarget).find(".menucontext"));
                     $(e.currentTarget).find(".menucontext").css("top", e.pageY - 325);
                     $(e.currentTarget).find(".menucontext").css("left", e.pageX - 280);
                     $(e.currentTarget).find(".menucontext").css('opacity', '1');
