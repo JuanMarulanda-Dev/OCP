@@ -39,20 +39,23 @@
             <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="home-tab">
                 {{-- Details --}}
 
-                <div class="row">
-                    <div class="d-flex justify-content-end mb-4">
-                        <button class="btn btn-outline-danger" data-toggle="modal" data-target="#confirmDeleteProject">
-                            <i class="fas fa-trash-alt"></i>
-                            &nbsp;&nbsp;&nbsp;
-                            Eliminar
-                        </button>
-                        &nbsp;
-                        <a href="{{ route("proyectos.edit", $project->id) }}" class="btn icon icon-left btn-primary float-right">
-                            <i class="fas fa-pencil-alt"></i>
-                            &nbsp;&nbsp;&nbsp;Editar
-                        </a>
+                @if (Auth::user()->user_rol_id == 1)
+                    {{-- Administrador --}}
+                    <div class="row">
+                        <div class="d-flex justify-content-end mb-4">
+                            <button class="btn btn-outline-danger" data-toggle="modal" data-target="#confirmDeleteProject">
+                                <i class="fas fa-trash-alt"></i>
+                                &nbsp;&nbsp;&nbsp;
+                                Eliminar
+                            </button>
+                            &nbsp;
+                            <a href="{{ route("proyectos.edit", $project->id) }}" class="btn icon icon-left btn-primary float-right">
+                                <i class="fas fa-pencil-alt"></i>
+                                &nbsp;&nbsp;&nbsp;Editar
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <div class="row">
 

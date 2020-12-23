@@ -36,13 +36,15 @@
                     <ul class="menu">
 
                         <li class='sidebar-title'>Menu Principal</li>
-
-                        <li class="sidebar-item active ">
-                            <a href="{{ route('usuarios.index') }}" class='sidebar-link'>
-                                <i data-feather="users" width="20"></i>
-                                <span>Usuarios</span>
-                            </a>
-                        </li>
+                        @if (Auth::user()->user_rol_id == 1)
+                            {{-- Administrador --}}
+                            <li class="sidebar-item active ">
+                                <a href="{{ route('usuarios.index') }}" class='sidebar-link'>
+                                    <i data-feather="users" width="20"></i>
+                                    <span>Usuarios</span>
+                                </a>
+                            </li>
+                        @endif
 
                         <li class="sidebar-item ">
                             <a href="{{ route('proyectos.index') }}" class='sidebar-link'>
@@ -52,7 +54,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route('usuarios.profile') }}" class='sidebar-link'>
                                 <i data-feather="user" width="20"></i>
                                 <span>Mi perfil</span>
                             </a>
@@ -98,7 +100,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ route('usuarios.profile') }}"><i data-feather="user"></i> Mi perfil</a>
-                                <a class="dropdown-item" href="#"><i data-feather="mail"></i> Mis proyectos</a>
+                                <a class="dropdown-item" href="{{ route("proyectos.index") }}"><i data-feather="mail"></i> Mis proyectos</a>
                                 <div class="dropdown-divider"></div>
                                 @livewire('logout')
                             </div>

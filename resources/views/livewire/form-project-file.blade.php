@@ -10,18 +10,21 @@
                         </button>
                         <span style="font-size: 1.5rem;">{{ $route_content }}</span>
                     </div>
-                    <div>
-                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#createNewFolder">
-                            <i class="fas fa-folder-plus"></i>
-                            &nbsp;&nbsp;&nbsp;
-                            Nueva Carpeta
-                        </button>
-                        <button class="btn btn-outline-primary" wire:click="$emit('ShowChooseFile')">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            &nbsp;&nbsp;&nbsp;
-                            Subir Archivo
-                        </button>
-                    </div>
+                    @if (Auth::user()->user_rol_id == 1)
+                        {{-- Administrador --}}
+                        <div>
+                            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#createNewFolder">
+                                <i class="fas fa-folder-plus"></i>
+                                &nbsp;&nbsp;&nbsp;
+                                Nueva Carpeta
+                            </button>
+                            <button class="btn btn-outline-primary" wire:click="$emit('ShowChooseFile')">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                &nbsp;&nbsp;&nbsp;
+                                Subir Archivo
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
 

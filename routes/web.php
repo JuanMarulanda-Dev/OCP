@@ -22,10 +22,6 @@ Route::get('/login', function () {
 
 Route::middleware('auth')->group(function (){
 
-    Route::get('/home', function () {
-        return view('Home');
-    })->name("home");
-
     Route::get('perfil', function(){
         return view('Modules.Users.profile');
     })->name('usuarios.profile');

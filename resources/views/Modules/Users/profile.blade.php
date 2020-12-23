@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex justify-content-between">
-                        <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("usuarios.index") }}">
+                        <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("proyectos.index") }}">
                             <i class="fas fa-arrow-circle-left"></i>
                             <h3 class="">&nbsp;Mi Perfil</h3>
                         </a>

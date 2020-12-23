@@ -14,8 +14,8 @@
     
     {{-- Menucontex --}}
 
-    <div class="list-group p-0 dropdown-menu menucontext" role="menu" aria-hidden="true" data-keyboard="false" tabindex="-1"
-        style="opacity: 0;">
+    <div class="list-group p-0 dropdown-menu menucontext" role="menu" aria-hidden="true" data-keyboard="false" tabindex="-1" style="opacity: 0;">
+
         @if ($isFolderOrFile == 1)
             
             <button type="button" class="list-group-item list-group-item-action copyFileUrl">
@@ -29,11 +29,14 @@
 
         @endif
 
-        <button type="button" class="list-group-item list-group-item-action showDeleteConfirmation" data-path="{{ $path }}">
-            <i class="fas fa-trash-alt text-danger"></i>
-            &nbsp;Eliminar
-        </button>
-        
+        @if (Auth::user()->user_rol_id == 1)
+            {{-- Administrador --}}
+            <button type="button" class="list-group-item list-group-item-action showDeleteConfirmation" data-path="{{ $path }}">
+                <i class="fas fa-trash-alt text-danger"></i>
+                &nbsp;Eliminar
+            </button>    
+        @endif
+
     </div>
 
 </div>

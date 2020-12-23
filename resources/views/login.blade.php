@@ -45,7 +45,6 @@
                 document.getElementById('loader').className = 'd-none';
             }
 
-            // 
             Livewire.on('ShowAlertDangerUserNotFound', (title, body) => 
                 toastr.warning(body, title)
             )
