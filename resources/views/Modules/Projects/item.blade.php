@@ -1,10 +1,10 @@
 <div class="section-project-item">
 
     <div @if($isFolderOrFile == 0) wire:click="changePorjectFolder('{{ $path }}')" @else onclick="showFileInOtherWindow(this)" @endif class="project-item d-flex flex-column justify-content-between align-items-center">
-        <a download="{{ $name }}" class="d-none" target="_blank" @if($isFolderOrFile == 1) href="{{ env('AWS_URL_BUCKET').$path }}" @endif></a>
+        <a download="{{ $name }}" class="d-none" target="_blank" @if($isFolderOrFile == 1) href="{{ config("aws3.aws_url_bucket").$path }}" @endif></a>
         <span>
-            @if ($isFolderOrFile == 1)
-            <img class="project-img-size rounded" src="{{ env('AWS_URL_BUCKET').$path }}" alt="project-image">
+            @if ($isFolderOrFile == 1 && Str::of($name)->endsWith(['.png', '.jpg']))
+            <img class="project-img-size rounded" src="{{ config("aws3.aws_url_bucket").$path }}" alt="project-image">
             @else
                 <i class="{{ $this->chooseIconForItem($name) }}"></i>
             @endif

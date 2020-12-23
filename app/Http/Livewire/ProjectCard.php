@@ -15,7 +15,7 @@ class ProjectCard extends Component
     public function destroyProject()
     {
         // Destroy project folder from S3
-        $status = Storage::disk('s3')->deleteDirectory(env('AWS_PREFIX_PROJECT_FOLDER').$this->project->id);
+        $status = Storage::disk('s3')->deleteDirectory(config('aws3.aws_prefix_project_folder').$this->project->id);
 
         if($status){
             // Delete Row from project image table

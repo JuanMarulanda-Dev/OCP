@@ -18,7 +18,7 @@ class IndexProject extends Component
     public function render()
     {
         return view('livewire.index-project', [
-            'projects' => $this->search_project_by_all_fieldes()->paginate(5)
+            'projects' => $this->search_project_by_all_fieldes()->paginate(10)
         ]);
     }
 

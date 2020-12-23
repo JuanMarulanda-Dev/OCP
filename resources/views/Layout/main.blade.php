@@ -90,7 +90,7 @@
                             <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>&nbsp;
                                 <div class="avatar mr-1">
                                     @isset(Auth::user()->image)
-                                        <img src="{{env('AWS_URL_BUCKET').Auth::user()->image->image}}" alt="">
+                                        <img src="{{config("aws3.aws_url_bucket").Auth::user()->image->image}}" alt="">
                                     @else
                                         <span class="default-profile-image"><i class="fas fa-user-circle"></i></span>
                                     @endisset

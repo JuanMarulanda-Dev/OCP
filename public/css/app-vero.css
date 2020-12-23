@@ -234,6 +234,7 @@ footer {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 3.2px;
 }
 
 .project-item i{

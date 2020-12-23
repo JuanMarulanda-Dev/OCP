@@ -57,7 +57,7 @@ class FormUser extends Component
             $this->email = $user->email;
             $this->user_rol_id = $user->user_rol_id;
         }
-        $this->folder_img = env('AWS_FOLDER_IMG', 'ocp_user_avatars');
+        $this->folder_img = config('aws3.aws_folder_img');
         $this->profile = $profile;
         $this->user = $user;
     }
@@ -190,9 +190,6 @@ class FormUser extends Component
 
     public function render()
     {
-        // dd($this->image ,substr($this->image, 0, Str::length(env('AWS_FOLDER_IMG'))));
-        // dd((substr($this->image, 0, Str::length(env('AWS_FOLDER_IMG'))) === env('AWS_FOLDER_IMG')));
-
         $roles = \App\Models\User_rol::all();
         return view('livewire.form-user',[
             'roles' => $roles

@@ -61,7 +61,7 @@ class ProjectController extends Controller
     {
         $project = Project::with('image')->find($id);
 
-        $project_folder = env('AWS_PREFIX_PROJECT_FOLDER'). $project->id;
+        $project_folder = config('aws3.aws_prefix_project_folder'). $project->id;
 
         $content = $this->search_project_content($project_folder);
         

@@ -5,7 +5,7 @@
                 <div class="col-md-2">
                     @isset($project->image)
                         <div class="project-image">
-                            <img class="rounded" src="{{env('AWS_URL_BUCKET').$project->image->image}}" alt="">
+                            <img class="rounded" src="{{config("aws3.aws_url_bucket").$project->image->image}}" alt="">
                         </div>
                     @else
                         <div class="d-flex justify-content-center align-items-center rounded bg-secondary text-white project-icon">

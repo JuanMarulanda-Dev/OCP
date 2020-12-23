@@ -15,7 +15,7 @@
                     <td>
                         <div class="avatar mr-3">
                             @isset($user->image)
-                                <img src="{{env('AWS_URL_BUCKET').$user->image->image}}" alt="">
+                                <img src="{{config("aws3.aws_url_bucket").$user->image->image}}" alt="">
                             @else
                                 <span class="default-profile-image"><i class="fas fa-user-circle"></i></span>
                             @endisset

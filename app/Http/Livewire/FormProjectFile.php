@@ -15,8 +15,9 @@ class FormProjectFile extends Component
     public $project, $file, $project_folder, $route_content="/";
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
+    public $extensions = ['.pdf', '.png', '.jpg', '.xlsx', '.docx', '.txt'];
 
-    public function amout($project, $project_folder) // se llama es mount
+    public function mount($project, $project_folder) // se llama es mount
     {
         $this->project = $project;
         $this->project_folder = $project_folder;
@@ -46,19 +47,28 @@ class FormProjectFile extends Component
     {
         $icon = "fas fa-folder";
 
-        if(Str::of($item)->endsWith(['.pdf', '.png'])){
+        if(Str::of($item)->endsWith($this->extensions)){
 
             $nameFile = explode('.', $item);
 
             switch ($nameFile[count($nameFile) - 1]) {
                 case 'pdf':
-
                         return "far fa-file-pdf";
 
                     break;
-                case 'png':
+                case 'docx':
 
-                        return "far fa-image";
+                        return "far fa-file-word";
+
+                    break;
+                case 'xlsx':
+
+                        return "far fa-file-excel";
+
+                    break;
+                case 'txt':
+
+                        return "far fa-file-alt";
 
                     break;
             }
@@ -88,7 +98,7 @@ class FormProjectFile extends Component
 
     public function isFolderOrFile($name)
     {
-        if(Str::of($name)->endsWith(['.pdf', '.png'])){
+        if(Str::of($name)->endsWith($this->extensions)){
             // Is File
             return 1;
         }else{
