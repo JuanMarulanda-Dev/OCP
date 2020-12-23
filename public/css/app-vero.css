@@ -213,7 +213,8 @@ footer {
 .project-icon i,
 .fields i,
 .files i,
-.list-group-item i
+.list-group-item i,
+.form-control-icon i
 {
   line-height: unset;
 }

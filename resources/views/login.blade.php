@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in - {{ env("APP_NAME") }}</title>
+    <title>Sign in - {{ config("app.name") }}</title>
+    <script src="https://kit.fontawesome.com/ad3c4e576b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
     <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset("css/app-vero.css") }}">
@@ -24,7 +25,7 @@
     {{-- Content --}}
     <div id="auth" class="d-none">
         <div>
-            <@livewire('login')
+            @livewire('login')
         </div>
     </div>
     <script src="{{ asset("js/feather-icons/feather.min.js") }}"></script>

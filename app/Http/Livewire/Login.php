@@ -17,19 +17,17 @@ class Login extends Component
 
     public function submit_login()
     {
-        // $this->emit('ShowLoaderActionLogin');
         $this->validate();
         
         if(User::where('email', $this->email)->first() != null){
 
             if(Auth::attempt(['email' => $this->email, 'password' => $this->password])){
 
-                return redirect(route('home'));
+                return redirect(route('proyectos.index'));
     
             }else{
     
                 $this->emit('ShowAlertDangerUserNotFound', "Advertencia!", "Contraseña incorrecta");
-                // $this->emit('HiddeLoaderActionLogin');
             }
         }else{
             

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - {{ env("APP_NAME") }}</title>
+    <title>Home - {{ config("app.name") }}</title>
     <script src="https://kit.fontawesome.com/ad3c4e576b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
     <link rel="shortcut icon" href="{{asset("images/favicon.ico")}}" type="image/x-icon">
@@ -129,9 +129,7 @@
     <script src="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.min.js")}}"></script>
     <script src="{{asset("js/app.js")}}"></script>
 
-    {{-- <script src="{{asset("vendors/chartjs/Chart.min.js")}}"></script> --}}
     <script src="{{asset("vendors/apexcharts/apexcharts.min.js")}}"></script>
-    {{-- <script src="{{asset("js/pages/dashboard.js")}}"></script> --}}
 
     <script src="{{asset("/js/main.js")}}"></script>
 

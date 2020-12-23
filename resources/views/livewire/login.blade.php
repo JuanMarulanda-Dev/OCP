@@ -6,7 +6,7 @@
                     <div>
                         <a href="#">
                             <small>
-                                <i data-feather="arrow-left"></i>
+                                <i class="fas fa-arrow-circle-left"></i>
                                 Volver a la web
                             </small>
                         </a>
@@ -38,7 +38,7 @@
                             <div class="position-relative">
                                 <input type="email" class="form-control" wire:model="email">
                                 <div class="form-control-icon">
-                                    <i data-feather="user"></i>
+                                    <i class="far fa-user"></i>
                                 </div>
                             </div>
                             
@@ -47,6 +47,7 @@
                             <div class="clearfix">
                                 <label for="password">Contraseña*</label>
                                 @if (Route::has('password.request'))
+                                {{-- Pending --}}
                                     <a href="auth-forgot-password.html" class='float-right'>
                                         <small>¿Olvido su contraseña?</small>
                                     </a>
@@ -55,15 +56,17 @@
                             <div class="position-relative">
                                 <input type="password" class="form-control" wire:model="password">
                                 <div class="form-control-icon">
-                                    <i data-feather="lock"></i>
+                                    <i class="fas fa-key"></i>
                                 </div>
                             </div>
                         </div>
 
                         <div class="clearfix">
                             <button type="submit" class="btn btn-primary btn-block">Ingresar
-                                <div id="spinner" class="spinner-border text-light d-none" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                <div wire:target="submit_login" wire:loading class="text-center float-right">
+                                    <div class="spinner-border position-relative" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                 </div>
                             </button>
                         </div>
