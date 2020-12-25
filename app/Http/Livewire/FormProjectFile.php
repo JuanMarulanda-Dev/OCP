@@ -17,7 +17,7 @@ class FormProjectFile extends Component
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
     public $extensions = ['.pdf', '.png', '.jpg', '.xlsx', '.docx', '.txt'];
 
-    public function mount($project, $project_folder) // se llama es mount
+    public function mount($project, $project_folder)
     {
         $this->project = $project;
         $this->project_folder = $project_folder;

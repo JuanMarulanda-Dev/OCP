@@ -19,9 +19,20 @@
     <script>
         $(document).ready(function () {
 
+            // let form = $('#form-designs');
+
             Livewire.on('ShowProfileImage', () => {
                 $("#image").click();
             });
+
+            // form.submit(function (e) { 
+            //     e.preventDefault();
+                
+            //     console.log(form.serialize());
+
+            //     // Livewire.emit("");
+
+            // });
 
         });
     </script>

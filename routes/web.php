@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,21 +15,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
-Route::get('/login', function () {
+//Session Routes
+Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::middleware('auth')->group(function (){
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-    Route::get('perfil', function(){
-        return view('Modules.Users.profile');
-    })->name('usuarios.profile');
+//Passwrod Reset Routes
+Route::get('/password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/password/email', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/password/reset/{token}', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
+
+
+Route::middleware('auth')->group(function (){   
     
-    Route::resource('/usuarios', App\Http\Controllers\UsersController::class);
+    // Projects
+    Route::get('/proyectos', [ProjectController::class, 'index'])->name('proyectos.index');
+    Route::get('/proyectos/{proyecto}', [ProjectController::class, 'show'])->name('proyectos.show');
+    Route::get('/proyectos/{proyecto}/edit', [ProjectController::class, 'edit'])->name('proyectos.edit');
+    Route::get('/proyectos/create', [ProjectController::class, 'create'])->name('proyectos.create');
 
-    Route::resource('/proyectos', App\Http\Controllers\ProjectController::class);
+    // usuarios
+    Route::get('/usuarios', [UsersController::class, 'index'])->name('usuarios.index');
+    Route::get('/usuarios/{usuario}', [UsersController::class, 'show'])->name('usuarios.show');
+    Route::get('/usuarios/{usuario}/edit', [UsersController::class, 'edit'])->name('usuarios.edit');
+    Route::get('/usuarios/create', [UsersController::class, 'create'])->name('usuarios.create');
+
+    // Prifile
+    Route::get('perfil', function(){
+
+        return view('Modules.Users.profile');
+        
+    })->name('usuarios.profile');
+
+    //Contacto
+    Route::get('/contacto', [ContactController::class, 'showContactForm'])->name('contacto.request');
 
 });
 

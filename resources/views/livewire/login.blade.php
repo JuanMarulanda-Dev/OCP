@@ -48,7 +48,7 @@
                                 <label for="password">Contraseña*</label>
                                 @if (Route::has('password.request'))
                                 {{-- Pending --}}
-                                    <a href="auth-forgot-password.html" class='float-right'>
+                                    <a href="{{ route('password.request') }}" class='float-right'>
                                         <small>¿Olvido su contraseña?</small>
                                     </a>
                                 @endif
@@ -71,9 +71,11 @@
                             </button>
                         </div>
                         <div class='text-center mt-3'>
-                            <a href="#">
-                                <small>Terminos y condiciones</small>
-                            </a>
+                            @if (Route::has('terms'))
+                                <a href="{{ route('terms') }}">
+                                    <small>Terminos y condiciones</small>
+                                </a>
+                            @endif
                         </div>
                     </form>
                 </div>

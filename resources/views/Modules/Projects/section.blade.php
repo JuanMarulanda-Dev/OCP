@@ -65,6 +65,7 @@
             </div>
     
             <div class="row">
+                {{-- convertir esto en un componente --}}
                 <div class="table-responsive">
                     <table class="table mb-0" id="tbl-project-design">
                         <thead class="thead-dark">
