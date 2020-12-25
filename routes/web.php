@@ -20,29 +20,35 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
-Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
 
 //Passwrod Reset Routes
-Route::get('/password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('/password/email', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('/password/reset/{token}', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('/password/reset', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
+Route::get('password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
 
 
 Route::middleware('auth')->group(function (){   
     
-    // Projects
-    Route::get('/proyectos', [ProjectController::class, 'index'])->name('proyectos.index');
-    Route::get('/proyectos/{proyecto}', [ProjectController::class, 'show'])->name('proyectos.show');
-    Route::get('/proyectos/{proyecto}/edit', [ProjectController::class, 'edit'])->name('proyectos.edit');
-    Route::get('/proyectos/create', [ProjectController::class, 'create'])->name('proyectos.create');
+    Route::middleware('is.admin')->group(function () {
+        
+        Route::get('proyectos/create', [ProjectController::class, 'create'])->name('proyectos.create');
+        Route::get('proyectos/{proyecto}/edit', [ProjectController::class, 'edit'])->name('proyectos.edit');
+        
+    
+        // usuarios
+        Route::get('usuarios', [UsersController::class, 'index'])->name('usuarios.index');
+        Route::get('usuarios/create', [UsersController::class, 'create'])->name('usuarios.create');
+        Route::get('usuarios/{usuario}', [UsersController::class, 'show'])->name('usuarios.show');
 
-    // usuarios
-    Route::get('/usuarios', [UsersController::class, 'index'])->name('usuarios.index');
-    Route::get('/usuarios/{usuario}', [UsersController::class, 'show'])->name('usuarios.show');
-    Route::get('/usuarios/{usuario}/edit', [UsersController::class, 'edit'])->name('usuarios.edit');
-    Route::get('/usuarios/create', [UsersController::class, 'create'])->name('usuarios.create');
+    });
+
+    // Projects
+    Route::get('proyectos', [ProjectController::class, 'index'])->name('proyectos.index');
+    Route::get('proyectos/{proyecto}', [ProjectController::class, 'show'])->name('proyectos.show');
+    
 
     // Prifile
     Route::get('perfil', function(){
@@ -52,7 +58,10 @@ Route::middleware('auth')->group(function (){
     })->name('usuarios.profile');
 
     //Contacto
-    Route::get('/contacto', [ContactController::class, 'showContactForm'])->name('contacto.request');
+    Route::get('contacto', [ContactController::class, 'showContactForm'])->name('contacto.request');
+
+    // Logout
+    Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 });
 

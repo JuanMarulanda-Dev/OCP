@@ -51,14 +51,18 @@ class ProjectController extends Controller
     {
         $project = Project::with('image')->find($id);
 
-        $project_folder = config('aws3.aws_prefix_project_folder'). $project->id;
+        if(isset($project)){
+            $project_folder = config('aws3.aws_prefix_project_folder').$project->id;
 
-        $content = $this->search_project_content($project_folder);
-        
-        return view("Modules/Projects/show", [ 
-            'project' => $project,
-            'project_folder' => $project_folder,
-            'project_content' => $content]);
+            $content = $this->search_project_content($project_folder);
+            
+            return view("Modules/Projects/show", [ 
+                'project' => $project,
+                'project_folder' => $project_folder,
+                'project_content' => $content]);
+        }else{
+            abort(404);
+        }
     }
 
     /**
