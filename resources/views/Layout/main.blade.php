@@ -61,7 +61,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route('contacto.request') }}" class='sidebar-link'>
                                 <i data-feather="phone" width="20"></i>
                                 <span>Contacto</span>
                             </a>

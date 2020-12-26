@@ -8,6 +8,6 @@ class ContactController extends Controller
 {
     public function showContactForm()
     {
-            // return view();
+            return view('Modules.contacto.contacto');
     }
 }
