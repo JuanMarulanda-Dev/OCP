@@ -34,5 +34,14 @@
 
 @push('scripts')
 
+    <script>
+        $(document).ready(function () {
+            
+            Livewire.on('ShowActionFinishedSuccess', (body, title) => {
+                toastr.success(body, title)
+            });
+            
+        });
+    </script>
 
 @endpush

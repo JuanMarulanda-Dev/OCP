@@ -22,7 +22,18 @@ class FormContac extends Component
         //Validate User's Fields
         $validatedData = $this->validate();
 
-        Mail::to('judama3012@gmail.com')->send(new ContactMail($validatedData));
+        try {
+            
+            // Send email to admin of system OCP
+            Mail::to('judama3012@gmail.com')->send(new ContactMail($validatedData));
+
+            // Emit message to action succes with toastr.js
+            $this->emit('ShowActionFinishedSuccess', 'Mensaje enviado correctamente!', 'Exitoso.');
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
     }
 
     public function render()
