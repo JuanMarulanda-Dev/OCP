@@ -8,8 +8,6 @@
 
     @include('Modules.Projects.section', [
         'project' => $project,
-        'templates' => $templates,
-        'content_types' => $content_types,
         ])
 
 @endsection

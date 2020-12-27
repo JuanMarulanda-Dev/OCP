@@ -36,19 +36,19 @@ Route::middleware('auth')->group(function (){
     Route::middleware('is.admin')->group(function () {
         
         Route::get('proyectos/create', [ProjectController::class, 'create'])->name('proyectos.create');
-        Route::get('proyectos/{proyecto}/edit', [ProjectController::class, 'edit'])->name('proyectos.edit');
+        Route::get('proyectos/{id}/edit', [ProjectController::class, 'edit'])->name('proyectos.edit')->middleware('id.encrypt');
         
     
         // usuarios
         Route::get('usuarios', [UsersController::class, 'index'])->name('usuarios.index');
         Route::get('usuarios/create', [UsersController::class, 'create'])->name('usuarios.create');
-        Route::get('usuarios/{usuario}', [UsersController::class, 'show'])->name('usuarios.show');
+        Route::get('usuarios/{id}', [UsersController::class, 'show'])->name('usuarios.show')->middleware('id.encrypt');
 
     });
 
     // Projects
     Route::get('proyectos', [ProjectController::class, 'index'])->name('proyectos.index');
-    Route::get('proyectos/{proyecto}', [ProjectController::class, 'show'])->name('proyectos.show');
+    Route::get('proyectos/{id}', [ProjectController::class, 'show'])->name('proyectos.show')->middleware('id.encrypt');
     
 
     // Prifile

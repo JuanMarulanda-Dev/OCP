@@ -49,7 +49,7 @@
                                 Eliminar
                             </button>
                             &nbsp;
-                            <a href="{{ route("proyectos.edit", $project->id) }}" class="btn icon icon-left btn-primary float-right">
+                            <a href="{{ route("proyectos.edit", $project->encid) }}" class="btn icon icon-left btn-primary float-right">
                                 <i class="fas fa-pencil-alt"></i>
                                 &nbsp;&nbsp;&nbsp;Editar
                             </a>
@@ -60,7 +60,7 @@
                 <div class="row">
 
                     <div class="col-lg-8 col-md-12">
-                        @livewire('project-card', ['project' => $project], key($project->id))
+                        @livewire('project-card', ['project' => $project, 'link' => null], key($project->id))
                     </div>
 
                     <div class="col-lg-4 col-md-12">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 @livewire('form-project-file', ['project' => $project, 
-                                                'project_folder' => $project_folder] , key($project->id))
+                                                'project_folder' => $project_folder] , key($project->encid))
 
             </div>
         </div>

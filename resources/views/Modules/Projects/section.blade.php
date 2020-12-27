@@ -20,10 +20,6 @@
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#user-form" role="tab"
                         aria-controls="home" aria-selected="true">Detalles del proyecto</a>
                 </li>
-                {{-- <li class="nav-item" role="presentation">
-                    <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
-                        aria-controls="profile" aria-selected="false">Archivos</a>
-                </li> --}}
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="user-form" role="tabpanel" aria-labelledby="home-tab">

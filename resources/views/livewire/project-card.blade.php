@@ -1,11 +1,11 @@
-<a class="card text-decoration-none" href="{{ route('proyectos.show', $project->id) }}">
+<a class="card text-decoration-none"@isset($link) href="{{ route('proyectos.show', $project->encid) }}" @endisset>
     <div class="card-body">
         <div class="content-project">
             <div class="row">
                 <div class="col-md-2">
                     @isset($project->image)
                         <div class="project-image">
-                            <img class="rounded" src="{{config("aws3.aws_url_bucket").$project->image->image}}" alt="">
+                            <img class="rounded" src="{{config("aws3.aws_url_bucket").$project->image->image}}" alt="project_image">
                         </div>
                     @else
                         <div class="d-flex justify-content-center align-items-center rounded bg-secondary text-white project-icon">

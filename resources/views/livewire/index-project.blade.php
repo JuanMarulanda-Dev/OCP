@@ -25,7 +25,7 @@
         @forelse($projects as $project)
         
             <div class="col-lg-6 col-md-12">
-                @livewire('project-card', ['project' => $project], key($project->id))
+                @livewire('project-card', ['project' => $project, 'link' => 1], key($project->encid))
             </div>
     
         @empty

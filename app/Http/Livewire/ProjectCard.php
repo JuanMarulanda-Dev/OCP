@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class ProjectCard extends Component
 {
-    public $project = null;
+    public $project = null, $link;
 
     protected $listeners = ['destroy' => 'destroyProject'];
 

@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                <tr id="{{ $user->id }}">
+                <tr id="{{ $user->encid }}">
                     <td>
                         <div class="avatar mr-3">
                             @isset($user->image)
@@ -28,10 +28,10 @@
                     <td>{{ $user->user_rol->rol }}</td>
                     <td>
                         <div class="actions d-flex justify-content-between">
-                            <button wire:click="showUserDetalis({{ $user->id }})">
+                            <button wire:click="showUserDetalis('{{ $user->encid }}')">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button wire:click="destroyConfirm({{ $user->id }})">
+                            <button wire:click="destroyConfirm('{{ $user->encid }}')">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>

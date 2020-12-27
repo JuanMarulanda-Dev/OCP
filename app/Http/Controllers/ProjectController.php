@@ -62,15 +62,14 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        
-        $templates = Template::all();
-        $content_types = Content_type::all();
 
-        return view("Modules/Projects/edit", [ 
-            'project' => $project,
-            'templates' => $templates,
-            'content_types' => $content_types,
-            ]);
+        if($project){
+            return view("Modules/Projects/edit", [ 
+                'project' => $project,
+                ]);
         }
+
+        abort(404);
+    }
 
 }
