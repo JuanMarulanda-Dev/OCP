@@ -122,7 +122,7 @@
             </div>
             <div class="float-right">
                 <p>Development Made With <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                        href="http://ahmadsaugi.com">Juan David M</a></p>
+                        href="https://www.workana.com/freelancer/ba17fd31879a6c3245972dc488eee3c1?ref=user_dropdown">Juan David M</a></p>
             </div>
         </div>
     </footer>
