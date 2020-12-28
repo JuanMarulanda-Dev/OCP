@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-12">
-                        @include('Modules.Projects.file-section', ['project_content' => $project_content])
+                        @livewire('project-files-section')
                     </div>
 
                 </div>

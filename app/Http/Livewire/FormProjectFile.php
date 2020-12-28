@@ -12,7 +12,7 @@ class FormProjectFile extends Component
 {
     use SearchProjectContet, WithFileUploads;
     
-    public $project, $file, $project_folder, $route_content="/";
+    public $first_time, $project, $file, $project_folder, $route_content="/";
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
     public $extensions = ['.pdf', '.png', '.jpg', '.xlsx', '.docx', '.txt'];
@@ -21,6 +21,7 @@ class FormProjectFile extends Component
     {
         $this->project = $project;
         $this->project_folder = $project_folder;
+        $this->first_time = 1;
     }
 
     public function uploadNewItem()
@@ -121,6 +122,11 @@ class FormProjectFile extends Component
         
     }
 
+    public function emitToProjectFilesSection($files)
+    {
+        $this->emit('buildFilesProjectSection', $files);
+    }
+
     public function downloadFile($pathToDownload)
     {
         return Storage::disk('s3')->download($pathToDownload);
@@ -134,8 +140,18 @@ class FormProjectFile extends Component
             $this->file = null;
         }
 
+        $project_content = $this->search_project_content($this->project_folder);
+
+        if($this->first_time){
+            // Solo emitir cuando estes en el directorio raiz y sea la primera vez
+            $this->emitTo('project-files-section.blade', 'setFiles');
+            // dd('emitio');
+            $this->emitToProjectFilesSection(array_chunk($project_content, 4));
+            $this->first_time = 0;
+        }
+
         return view('livewire.form-project-file',[
-            'project_content' => $this->search_project_content($this->project_folder)
+            'project_content' => $project_content
         ]);
     }
 }

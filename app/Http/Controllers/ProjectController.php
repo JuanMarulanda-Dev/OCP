@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Traits\SearchProjectContet;
 
 class ProjectController extends Controller
 {
-    use SearchProjectContet;
     
     /**
      * Display a listing of the resource.
@@ -41,13 +39,10 @@ class ProjectController extends Controller
 
         if(isset($project)){
             $project_folder = config('aws3.aws_prefix_project_folder').$project->id;
-
-            $content = $this->search_project_content($project_folder);
             
             return view("Modules/Projects/show", [ 
                 'project' => $project,
-                'project_folder' => $project_folder,
-                'project_content' => $content]);
+                'project_folder' => $project_folder]);
         }else{
             abort(404);
         }
