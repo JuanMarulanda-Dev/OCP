@@ -9,7 +9,6 @@
                     <div class="form-group position-relative has-icon-right">
                         <div id="project-filter" class="position-relative">
                             <input type="text" class="form-control" placeholder="Nombre" wire:model="filter_field">
-                            {{-- <span>{{ $projects }}</span> --}}
                             <div class="form-control-icon">
                                 <i class="fas fa-search" style="line-height: unset;"></i>
                             </div>

@@ -273,7 +273,7 @@ footer {
   background-color: #f4f7fc;
 }
 
-table.dataTable.hover tbody tr:hover .actions{
+#tbl-users tbody tr:hover .actions{
   opacity: 1;
 }
 

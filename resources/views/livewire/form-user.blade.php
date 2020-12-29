@@ -157,7 +157,9 @@
                 @endif
 
                 <div class="col-12 d-flex justify-content-end">
-                    <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                    @empty($user)
+                        <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                    @endempty
                     <button type="submit" class="btn btn-primary mr-1 mb-1">
                         <div wire:loading wire:target="{{$action}}" class="text-center">
                             <div class="spinner-border position-relative" role="status">

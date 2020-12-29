@@ -185,7 +185,7 @@
                 toastr.success(body, title)
             });
 
-            Livewire.on('HiddeCreateNewFolderModal', (body, title) => {
+            Livewire.on('HiddeCreateNewFolderModal', () => {
                 $('#createNewFolder').modal('hide')
             });
 

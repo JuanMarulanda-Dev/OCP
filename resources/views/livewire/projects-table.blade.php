@@ -61,7 +61,6 @@
     </div>
 
     <div class="col-12 d-flex justify-content-end">
-        <button wire:click="" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
         <button wire:click="saveProjectAssignments" type="button" class="btn btn-primary mr-1 mb-1">
             <div wire:loading wire:target="saveProjectAssignments" class="text-center">
                 <div class="spinner-border position-relative" role="status">
