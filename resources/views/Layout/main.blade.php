@@ -38,29 +38,28 @@
                         <li class='sidebar-title'>Menu Principal</li>
                         @if (Auth::user()->user_rol_id == 1)
                             {{-- Administrador --}}
-                            <li class="sidebar-item active ">
+                            <li class="sidebar-item @if($module == 'users') active @endif">
                                 <a href="{{ route('usuarios.index') }}" class='sidebar-link'>
                                     <i data-feather="users" width="20"></i>
                                     <span>Usuarios</span>
                                 </a>
                             </li>
                         @endif
-
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item @if($module == 'projects') active @endif">
                             <a href="{{ route('proyectos.index') }}" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
                                 <span>Proyectos</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item @if($module == 'profile') active @endif">
                             <a href="{{ route('usuarios.profile') }}" class='sidebar-link'>
                                 <i data-feather="user" width="20"></i>
                                 <span>Mi perfil</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item ">
+                        <li class="sidebar-item @if($module == 'contact') active @endif">
                             <a href="{{ route('contacto.request') }}" class='sidebar-link'>
                                 <i data-feather="phone" width="20"></i>
                                 <span>Contacto</span>

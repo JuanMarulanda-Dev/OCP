@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+    protected $module = 'users';
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view("Modules/Users/index");
+        return view("Modules/Users/index", ['module' => $this->module]);
     }
 
     /**
@@ -25,7 +28,7 @@ class UsersController extends Controller
     public function create()
     {
         
-        return view("Modules/Users/create");
+        return view("Modules/Users/create", ['module' => $this->module]);
     }
 
     /**
@@ -38,7 +41,10 @@ class UsersController extends Controller
     {
         $user = User::where('id', $id)->with('image', 'user_rol')->first();
         if(isset($user)){
-            return view("Modules/Users/show", [ 'user' => $user, 'assignments' => $user->assignments()->pluck("user_id", "project_id")->toArray()]);
+            return view("Modules/Users/show", [
+                    'user' => $user, 
+                    'assignments' => $user->assignments()->pluck("user_id", "project_id")->toArray(),
+                    'module' => $this->module]);
         }else{
             abort(404);
         }

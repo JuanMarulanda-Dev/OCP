@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
 
 //Passwrod Reset Routes
-// Route::get('password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::get('password/reset', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function (){
     // Prifile
     Route::get('perfil', function(){
 
-        return view('Modules.Users.profile');
+        return view('Modules.Users.profile', ['module' => 'profile']);
         
     })->name('usuarios.profile');
 

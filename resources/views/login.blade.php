@@ -58,6 +58,13 @@
                 $('#spinner').addClass("d-none")
             )
 
+
+            @if (session('status'))
+                // Changed Password Successful
+                toastr.success("{{ session('status') }}", 'Exitoso!')
+
+            @endif
+
         });
     </script>
     @livewireScripts

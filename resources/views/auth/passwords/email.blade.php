@@ -40,14 +40,15 @@
                         </div>
                         @error('email') {{ $message }} @enderror
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback text-danger mb-2" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
 
                         <div class="clearfix">
                             <button type="submit" class="btn btn-primary btn-block">
-                                Enviar correo de restablecer
+                                Enviar correo de restablecer&nbsp;
+                                <i class="far fa-paper-plane"></i>
                             </button>
                         </div>
 

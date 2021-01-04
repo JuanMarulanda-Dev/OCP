@@ -1,13 +1,18 @@
-@extends('layouts.app')
+@extends('Layout.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
+                <div class="text-center my-4">
+                    <img src="{{ asset("images/logo-azul.png") }}" height="55"
+                        class='mb-2'>
+                    <h4 class="font-weight-bolder">{{ __('Reset Password') }}</h4>
+                </div>
+
+                <div class="card-body pt-0">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
@@ -53,6 +58,8 @@
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Reset Password') }}
+                                    &nbsp;
+                                    <i class="fas fa-undo"></i>
                                 </button>
                             </div>
                         </div>

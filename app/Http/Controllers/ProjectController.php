@@ -7,6 +7,8 @@ use App\Models\Project;
 class ProjectController extends Controller
 {
     
+    protected $module = 'projects';
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view("Modules/Projects/index");
+        return view("Modules/Projects/index", ['module' => $this->module]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("Modules/Projects/create");
+        return view("Modules/Projects/create", ['module' => $this->module]);
     }
 
     /**
@@ -42,7 +44,8 @@ class ProjectController extends Controller
             
             return view("Modules/Projects/show", [ 
                 'project' => $project,
-                'project_folder' => $project_folder]);
+                'project_folder' => $project_folder,
+                'module' => $this->module]);
         }else{
             abort(404);
         }
@@ -61,6 +64,7 @@ class ProjectController extends Controller
         if($project){
             return view("Modules/Projects/edit", [ 
                 'project' => $project,
+                'module' => $this->module
                 ]);
         }
 
