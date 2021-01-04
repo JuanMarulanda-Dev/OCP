@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Traits\SearchProjectContet;
 
 class ProjectController extends Controller
 {
-    
     protected $module = 'projects';
 
     /**
@@ -40,8 +40,9 @@ class ProjectController extends Controller
         $project = Project::with('image')->find($id);
 
         if(isset($project)){
+
             $project_folder = config('aws3.aws_prefix_project_folder').$project->id;
-            
+
             return view("Modules/Projects/show", [ 
                 'project' => $project,
                 'project_folder' => $project_folder,

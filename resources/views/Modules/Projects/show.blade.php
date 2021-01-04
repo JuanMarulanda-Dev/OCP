@@ -69,11 +69,8 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        Imagenes
-                    </div>
-                </div>
+                @livewire('project-cover-page', ['project_id' => $project->id, 
+                                                'project_folder' => $project_folder])
 
             </div>
             <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="home-tab">
@@ -84,7 +81,8 @@
                     </div>
                 </div>
                 @livewire('form-project-file', ['project' => $project, 
-                                                'project_folder' => $project_folder] , key($project->encid))
+                                                'project_folder' => $project_folder],
+                                                key($project->encid))
 
             </div>
         </div>

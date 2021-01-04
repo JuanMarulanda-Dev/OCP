@@ -72,6 +72,7 @@ class FormProjectFile extends Component
                         return "far fa-file-alt";
 
                     break;
+                    // Add a icon default
             }
 
         }
