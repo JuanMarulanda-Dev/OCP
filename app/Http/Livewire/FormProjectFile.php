@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Traits\SearchProjectContet;
+use App\Traits\SelectIconFile;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -10,12 +11,11 @@ use Livewire\WithFileUploads;
 
 class FormProjectFile extends Component
 {
-    use SearchProjectContet, WithFileUploads;
+    use SearchProjectContet, SelectIconFile, WithFileUploads;
     
     public $first_time, $project, $file, $project_folder, $route_content="/";
 
     protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
-    public $extensions = ['.pdf', '.png', '.jpg', '.xlsx', '.docx', '.txt'];
 
     public function mount($project, $project_folder)
     {
@@ -26,7 +26,6 @@ class FormProjectFile extends Component
 
     public function uploadNewItem()
     {
-        // Validar el tamaño de la imagen, que no sea mayor a 5 MB
         return $this->file->store($this->project_folder, 's3');
     }
 
@@ -42,42 +41,6 @@ class FormProjectFile extends Component
     {
         $this->project_folder = $path;
         $this->route_content = Str::substr($this->project_folder, Str::length(explode('/', $this->project_folder)[0]));
-    }
-
-    public function chooseIconForItem($item)
-    {
-        $icon = "fas fa-folder";
-
-        if(Str::of($item)->endsWith($this->extensions)){
-
-            $nameFile = explode('.', $item);
-
-            switch ($nameFile[count($nameFile) - 1]) {
-                case 'pdf':
-                        return "far fa-file-pdf";
-
-                    break;
-                case 'docx':
-
-                        return "far fa-file-word";
-
-                    break;
-                case 'xlsx':
-
-                        return "far fa-file-excel";
-
-                    break;
-                case 'txt':
-
-                        return "far fa-file-alt";
-
-                    break;
-                    // Add a icon default
-            }
-
-        }
-
-        return $icon;
     }
 
     public function rollbackProjectFolder()

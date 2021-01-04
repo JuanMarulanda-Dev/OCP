@@ -64,13 +64,12 @@
                     </div>
 
                     <div class="col-lg-4 col-md-12">
-                        @livewire('project-files-section')
+                        @livewire('project-files-section', ['project_folder' => $project_folder])
                     </div>
 
                 </div>
 
-                @livewire('project-cover-page', ['project_id' => $project->id, 
-                                                'project_folder' => $project_folder])
+                @livewire('project-cover-page', ['project_folder' => $project_folder])
 
             </div>
             <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="home-tab">

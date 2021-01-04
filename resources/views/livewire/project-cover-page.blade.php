@@ -8,7 +8,7 @@
     @empty
 
     <div class="col-12 text-center">
-        No Hay imagenes
+        No hay imagenes
     </div>
 
     @endforelse

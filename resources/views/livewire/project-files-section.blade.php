@@ -12,13 +12,18 @@
 
                         @forelse($porject_files as $porject_file)
                             <li class="list-group-item d-flex align-items-center overflow-hidden">
+                                @php
+                                    $name = explode('/', $porject_file);
+                                    $nameFile = $name[count($name) - 1];
+                                @endphp
                                 <div>
                                     {{-- Validate cual icono se va a mostrar --}}
-                                    <i class="fas fa-folder"></i>
+                                    <i class="{{ $this->chooseIconForItem($nameFile) }}"></i>
+                                    
                                 </div>
                                 <div>
                                     {{-- Funcion para obtener el nombre --}}
-                                    {{ $porject_file }}
+                                    {{ $nameFile }}
                                 </div>
                             </li>
                         @empty
