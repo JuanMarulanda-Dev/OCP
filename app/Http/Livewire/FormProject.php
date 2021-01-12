@@ -85,7 +85,7 @@ class FormProject extends Component
             session()->flash('body', 'El proyecto fue creado exitosamente.');
             session()->flash('title', 'Exitoso!');
 
-            return redirect()->to(route('proyectos.show', $project->id));
+            return redirect()->to(route('proyectos.show', $project->encid));
 
         }
 
@@ -151,7 +151,7 @@ class FormProject extends Component
             session()->flash('body', 'El proyecto fue actualizado exitosamente.');
             session()->flash('title', 'Exitoso!');
 
-            return redirect()->to(route('proyectos.show', $this->project->id));
+            return redirect()->to(route('proyectos.show', $this->project->encid));
 
         }
     }
