@@ -29,7 +29,7 @@
                         <div class="progress-bar" role="progressbar" style="width: {{ $project->progress }}%" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <small>
-                        {{ $project->progress }}% completado
+                        {{ $project->progress }}% {{ __('projects.completed') }}
                     </small>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <div class="col-6">
                     <div>
                         <div>
-                            <small>Creado</small>
+                            <small>{{ __('projects.created') }}</small>
                         </div>
                         <div>
                             <small>
@@ -57,7 +57,7 @@
                 <div class="col-6">
                     <div>
                         <div>
-                            <small>Fecha limite</small>
+                            <small>{{ __('projects.limitDate') }}</small>
                         </div>
                         <div>
                             <small>

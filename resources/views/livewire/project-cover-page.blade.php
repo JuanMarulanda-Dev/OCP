@@ -8,7 +8,7 @@
     @empty
 
     <div class="col-12 text-center">
-        No hay imagenes
+        {{ __('projects.noImages') }}
     </div>
 
     @endforelse

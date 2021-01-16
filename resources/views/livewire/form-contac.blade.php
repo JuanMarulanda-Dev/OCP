@@ -5,10 +5,10 @@
         <div class="col-md-6">
             <div class="form-group position-relative has-icon-left">
                 <div class="clearfix">
-                    <label for="names">Nombres</label>
+                    <label for="names">{{__('contact.names')}}</label>
                 </div>
                 <div class="position-relative">
-                    <input type="text" id="names" class="form-control" placeholder="Nombre" wire:model="names">
+                    <input type="text" id="names" class="form-control" placeholder="{{__('contact.names')}}" wire:model="names">
                     <div class="form-control-icon">
                         <i class="fas fa-user"></i>
                     </div>
@@ -20,10 +20,10 @@
         <div class="col-md-6">
             <div class="form-group position-relative has-icon-left">
                 <div class="clearfix">
-                    <label for="lastnames">Apellidos</label>
+                    <label for="lastnames">{{__('contact.lastNames')}}</label>
                 </div>
                 <div class="position-relative">
-                    <input type="text" id="lastnames" class="form-control" placeholder="Nombre" wire:model="lastnames">
+                    <input type="text" id="lastnames" class="form-control" placeholder="{{__('contact.lastNames')}}" wire:model="lastnames">
                     <div class="form-control-icon">
                         <i class="fas fa-user"></i>
                     </div>
@@ -38,10 +38,10 @@
         <div class="col-12">
             <div class="form-group position-relative has-icon-left">
                 <div class="clearfix">
-                    <label for="case">Asunto</label>
+                    <label for="case">{{__('contact.case')}}</label>
                 </div>
                 <div class="position-relative">
-                    <input type="text" id="case" class="form-control" placeholder="Asunto" wire:model="case">
+                    <input type="text" id="case" class="form-control" placeholder="{{__('contact.case')}}" wire:model="case">
                     <div class="form-control-icon">
                         <i class="fas fa-suitcase"></i>
                     </div>
@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group mb-3">
-                <textarea placeholder="Comentarios" class="form-control" rows="3" wire:model="comments"></textarea>
+                <textarea placeholder="{{__('contact.comments')}}" class="form-control" rows="3" wire:model="comments"></textarea>
                 @error('comments') <span class="error"><small>{{ $message }}</small></span> @enderror
             </div>
         </div>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             &nbsp;
-            Enviar
+            {{__('contact.send')}}
         </button>
     </div>
 </form>

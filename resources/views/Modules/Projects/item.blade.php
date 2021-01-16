@@ -20,11 +20,11 @@
             
             <button type="button" class="list-group-item list-group-item-action copyFileUrl">
                 <i class="fas fa-link"></i>
-                &nbsp;Copiar URL
+                &nbsp;{{ __('projects.copyUrlItem') }}
             </button>
             <button wire:click="downloadFile('{{ $path }}')" type="button" class="list-group-item list-group-item-action">
                 <i class="fas fa-cloud-download-alt"></i>
-                &nbsp;Descargar
+                &nbsp;{{ __('projects.dowloadItem') }}
             </button>
 
         @endif
@@ -33,7 +33,7 @@
             {{-- Administrador --}}
             <button type="button" class="list-group-item list-group-item-action showDeleteConfirmation" data-path="{{ $path }}">
                 <i class="fas fa-trash-alt text-danger"></i>
-                &nbsp;Eliminar
+                &nbsp;{{ __('projects.deleteItem') }}
             </button>    
         @endif
 

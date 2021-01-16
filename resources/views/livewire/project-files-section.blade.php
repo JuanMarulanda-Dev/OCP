@@ -3,7 +3,7 @@
         <div class="fields">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Archivos</h4>
+                    <h4>{{ __('projects.files') }}</h4>
                 </div>
             </div>
             <div class="row">
@@ -28,7 +28,7 @@
                             </li>
                         @empty
                             
-                            No hay archivos
+                            {{ __('projects.noFiles') }}
 
                         @endforelse
                     </ul>
@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="#" id="seemore" class="nav-link float-right">Ver más...</a>
+                    <a href="#" id="seemore" class="nav-link float-right">{{ __('projects.seeMore') }}...</a>
                 </div>
             </div>
         </div>

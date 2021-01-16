@@ -11,12 +11,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-between">
-                    <h3><i class="fas fa-project-diagram"></i>&nbsp;Proyectos</h3>
+                    <h3><i class="fas fa-project-diagram"></i>&nbsp;{{ __('main.projects') }}</h3>
                     @if (Auth::user()->user_rol_id == 1)
                         {{-- Administrador --}}
                         <a href="{{ route("proyectos.create") }}" class="btn icon icon-left btn-primary float-right">
                             <i class="fas fa-project-diagram"></i>
-                            &nbsp;&nbsp;&nbsp;Nuevo Proyecto
+                            &nbsp;&nbsp;&nbsp;{{ __('projects.newProject') }}
                         </a>                        
                     @endif
                 </div>

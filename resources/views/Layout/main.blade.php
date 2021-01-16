@@ -35,34 +35,34 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
 
-                        <li class='sidebar-title'>Menu Principal</li>
+                        <li class='sidebar-title'>{{ __('main.mainMenu') }}</li>
                         @if (Auth::user()->user_rol_id == 1)
                             {{-- Administrador --}}
                             <li class="sidebar-item @if($module == 'users') active @endif">
                                 <a href="{{ route('usuarios.index') }}" class='sidebar-link'>
                                     <i data-feather="users" width="20"></i>
-                                    <span>Usuarios</span>
+                                    <span>{{ __('main.users') }}</span>
                                 </a>
                             </li>
                         @endif
                         <li class="sidebar-item @if($module == 'projects') active @endif">
                             <a href="{{ route('proyectos.index') }}" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
-                                <span>Proyectos</span>
+                                <span>{{ __('main.projects') }}</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item @if($module == 'profile') active @endif">
                             <a href="{{ route('usuarios.profile') }}" class='sidebar-link'>
                                 <i data-feather="user" width="20"></i>
-                                <span>Mi perfil</span>
+                                <span>{{ __('main.profile') }}</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item @if($module == 'contact') active @endif">
                             <a href="{{ route('contacto.request') }}" class='sidebar-link'>
                                 <i data-feather="phone" width="20"></i>
-                                <span>Contacto</span>
+                                <span>{{ __('main.contact') }}</span>
                             </a>
                         </li>
 
@@ -83,12 +83,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
                         <li>
-                            <h6>Administrador</h6>
+                            <h6>{{ __('main.admin') }}</h6>
                         </li>
                         <li class="dropdown">
                             <a href="#" data-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user d-flex justify-content-between align-items-center">
-                            <div class="d-none d-md-block d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>&nbsp;
+                            <div class="d-none d-md-block d-lg-inline-block">{{ __('main.greeting') }}, {{ Auth::user()->name }}</div>&nbsp;
                                 <div class="avatar mr-1">
                                     @isset(Auth::user()->image)
                                         <img src="{{config("aws3.aws_url_bucket").Auth::user()->image->image}}" alt="">
@@ -98,8 +98,8 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{ route('usuarios.profile') }}"><i data-feather="user"></i> Mi perfil</a>
-                                <a class="dropdown-item" href="{{ route("proyectos.index") }}"><i data-feather="mail"></i> Mis proyectos</a>
+                                <a class="dropdown-item" href="{{ route('usuarios.profile') }}"><i data-feather="user"></i>&nbsp;{{ __('main.myProfile') }}</a>
+                                <a class="dropdown-item" href="{{ route("proyectos.index") }}"><i data-feather="mail"></i>&nbsp;{{ __('main.myProjects') }}</a>
                                 <div class="dropdown-divider"></div>
                                 @livewire('logout')
                             </div>
@@ -116,9 +116,6 @@
 
     <footer>
         <div class="footer clearfix mb-0 text-muted">
-            <div class="float-left">
-                <p>2020 &copy; Voler</p>
-            </div>
             <div class="float-right">
                 <p>Development Made With <span class='text-danger'><i data-feather="heart"></i></span> by <a
                         href="https://www.workana.com/freelancer/ba17fd31879a6c3245972dc488eee3c1?ref=user_dropdown">Juan David M</a></p>

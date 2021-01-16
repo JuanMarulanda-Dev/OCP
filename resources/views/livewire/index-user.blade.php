@@ -3,12 +3,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12 col-md-2">
-                    <label>Filtrar Usuarios</label>
+                    <label>{{ __('users.userFilter')}}</label>
                 </div>
                 <div class="col-sm-12 col-md-10">
                     <div class="form-group position-relative has-icon-right">
                         <div id="project-filter" class="position-relative">
-                            <input type="text" class="form-control" placeholder="Buscar..." wire:model="filter_field">
+                            <input type="text" class="form-control" placeholder="{{ __('users.userName')}}..." wire:model="filter_field">
                             <div class="form-control-icon">
                                 <i class="fas fa-search" style="line-height: unset;"></i>
                             </div>
@@ -25,10 +25,10 @@
                 <table class='table table-hover' id="tbl-users">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Compañia</th>
-                            <th>Rol</th>
+                            <th>{{ __('users.name')}}</th>
+                            <th>{{ __('users.email')}}</th>
+                            <th>{{ __('users.company')}}</th>
+                            <th>{{ __('users.rol')}}</th>
                             <th></th>
                         </tr>
                     </thead>

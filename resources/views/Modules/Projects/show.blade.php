@@ -14,7 +14,7 @@
                     <div>
                         <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("proyectos.index") }}">
                             <i class="fas fa-arrow-circle-left"></i>
-                            <h3 class="">&nbsp;Proyectos</h3>
+                            <h3 class="">&nbsp;{{ __('main.projects') }}</h3>
                         </a>
                     </div>
                 </div>
@@ -26,11 +26,11 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#details" role="tab"
-                            aria-controls="details" aria-selected="true">Detalles del proyecto</a>
+                            aria-controls="details" aria-selected="true">{{ __('projects.projectsDetails') }}</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#files" role="tab"
-                            aria-controls="files" aria-selected="false">Archivos</a>
+                            aria-controls="files" aria-selected="false">{{ __('projects.files') }}</a>
                     </li>
                 </ul>
             </div>
@@ -46,12 +46,12 @@
                             <button class="btn btn-outline-danger" data-toggle="modal" data-target="#confirmDeleteProject">
                                 <i class="fas fa-trash-alt"></i>
                                 &nbsp;&nbsp;&nbsp;
-                                Eliminar
+                                {{ __('projects.delete') }}
                             </button>
                             &nbsp;
                             <a href="{{ route("proyectos.edit", $project->encid) }}" class="btn icon icon-left btn-primary float-right">
                                 <i class="fas fa-pencil-alt"></i>
-                                &nbsp;&nbsp;&nbsp;Editar
+                                &nbsp;&nbsp;&nbsp;{{ __('projects.edit') }}
                             </a>
                         </div>
                     </div>
@@ -104,14 +104,14 @@
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar proyecto</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">{{ __('projects.deteleProject') }}/h5>
                 </div>
                 <div class="modal-body">
-                    ¿Desea eliminar el proyecto {{ $project->name }}?
+                    {{ __('projects.deleteConfirmation') }} <strong>{{ $project->name }}</strong>?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-                    <button onclick="Livewire.emit('destroy')" type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">{{ __('projects.cancel') }}</button>
+                    <button onclick="Livewire.emit('destroy')" type="button" class="btn btn-danger btn-sm">{{ __('projects.delete') }}</button>
                 </div>
             </div>
         </div>
@@ -205,7 +205,3 @@
     
 @endpush
 
-@push('listeners')
-        
-
-@endpush

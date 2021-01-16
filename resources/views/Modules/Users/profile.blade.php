@@ -14,7 +14,7 @@
                     <div class="d-flex justify-content-between">
                         <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("proyectos.index") }}">
                             <i class="fas fa-arrow-circle-left"></i>
-                            <h3 class="">&nbsp;Mi Perfil</h3>
+                            <h3 class="">&nbsp;{{ __('main.myProfile') }}</h3>
                         </a>
                     </div>
                 </div>

@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-between">
-                    <h3><i data-feather="users" width="20"></i>&nbsp;Usuarios</h3>
+                    <h3><i data-feather="users" width="20"></i>&nbsp;{{ __('main.users')}}</h3>
                     <a href="{{ route("usuarios.create") }}"
-                        class="btn icon icon-left btn-primary float-right"><i data-feather="user"></i> Nuevo Usuario</a>
+                        class="btn icon icon-left btn-primary float-right"><i data-feather="user"></i> {{ __('users.newUser')}}</a>
                 </div>
             </div>
         </div>
@@ -28,17 +28,17 @@
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Eliminar Usuario</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">{{ __('users.deleteUser')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ¿Desea eliminar el usuario?
+                {{ __('users.deleteUserConfirmation')}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-                <button onclick="Livewire.emit('destroy')" type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">{{ __('users.cancel')}}</button>
+                <button onclick="Livewire.emit('destroy')" type="button" class="btn btn-danger btn-sm">{{ __('users.delete')}}</button>
             </div>
         </div>
     </div>

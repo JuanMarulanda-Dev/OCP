@@ -3,12 +3,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-12 col-md-2">
-                    <label>Filtrar proyectos</label>
+                    <label>{{ __('projects.projectFilter') }}</label>
                 </div>
                 <div class="col-sm-12 col-md-10">
                     <div class="form-group position-relative has-icon-right">
                         <div id="project-filter" class="position-relative">
-                            <input type="text" class="form-control" placeholder="Nombre" wire:model="filter_field">
+                            <input type="text" class="form-control" placeholder="{{ __('projects.projectName') }}" wire:model="filter_field">
                             <div class="form-control-icon">
                                 <i class="fas fa-search" style="line-height: unset;"></i>
                             </div>
@@ -30,7 +30,7 @@
         @empty
     
             <div class="text-center">
-                No hay proyectos
+                {{ __('projects.noProject') }}
             </div>
     
         @endforelse

@@ -3,7 +3,7 @@
         {{-- Esto se deberia comvertir en un componenete --}}
         <div class="row">
             <div class="col-sm-12 col-md-2">
-                <label>Filtrar proyectos</label>
+                <label>{{ __('projects.projectFilter')}}</label>
             </div>
             <div class="col-sm-12 col-md-10">
                 <div class="form-group position-relative has-icon-right">
@@ -22,10 +22,10 @@
         <table class="table table-hover" id="projects-table">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Fecha de creación</th>
-                    <th scope="col">Fecha limite</th>
-                    <th scope="col">Asignado</th>
+                    <th scope="col">{{ __('projects.projectName')}}</th>
+                    <th scope="col">{{ __('projects.startDate')}}</th>
+                    <th scope="col">{{ __('projects.endDate')}}</th>
+                    <th scope="col">{{ __('users.assigned')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                     <tr>
                         <td colspan="4">
                             <div class="text-center">
-                                No Hay ningun proyecto
+                                {{ __('projects.noProjects')}}
                             </div>
                         </td>
                     </tr>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             &nbsp;
-            Guardar Cambios
+            {{ __('users.saveChanges')}}
         </button>
     </div>
 

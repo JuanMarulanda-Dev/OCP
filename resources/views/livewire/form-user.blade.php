@@ -30,10 +30,10 @@
                 <div class="col-md-6 col-12">
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="first-name">Nombre</label>
+                            <label for="first-name">{{ __('users.name')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="first-name" class="form-control" placeholder="Nombre" wire:model="name">
+                            <input type="text" id="first-name" class="form-control" placeholder="{{ __('users.name')}}" wire:model="name">
                             <div class="form-control-icon">
                                 <i class="far fa-user"></i>
                             </div>
@@ -45,10 +45,10 @@
 
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="last-name">Apellido</label>
+                            <label for="last-name">{{ __('users.lastName')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="last-name" class="form-control" placeholder="Apellido" wire:model="last_name">
+                            <input type="text" id="last-name" class="form-control" placeholder="{{ __('users.lastName')}}" wire:model="last_name">
                             <div class="form-control-icon">
                                 <i class="far fa-user"></i>
                             </div>
@@ -60,10 +60,10 @@
 
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="company">Compañia</label>
+                            <label for="company">{{ __('users.company')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="company" class="form-control" placeholder="Compañia" wire:model="company">
+                            <input type="text" id="company" class="form-control" placeholder="{{ __('users.company')}}" wire:model="company">
                             <div class="form-control-icon">
                                 <i class="fas fa-building"></i>
                             </div>
@@ -75,10 +75,10 @@
 
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="profession">Profesión</label>
+                            <label for="profession">{{ __('users.profession')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="profession" class="form-control" placeholder="Profesión" wire:model="profession">      
+                            <input type="text" id="profession" class="form-control" placeholder="{{ __('users.profession')}}" wire:model="profession">      
                             <div class="form-control-icon">
                                 <i class="fas fa-suitcase"></i>
                             </div>
@@ -90,10 +90,10 @@
 
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="email">Email:</label>
+                            <label for="email">{{ __('users.email')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="email" id="email" class="form-control" placeholder="Email" wire:model="email">
+                            <input type="email" id="email" class="form-control" placeholder="{{ __('users.email')}}" wire:model="email">
                             <div class="form-control-icon">
                                 <i class="far fa-envelope"></i>
                             </div>
@@ -105,10 +105,10 @@
 
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="tel">Telefono</label>
+                            <label for="tel">{{ __('users.phone')}}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="tel" class="form-control" placeholder="Telefono" wire:model="phone">
+                            <input type="text" id="tel" class="form-control" placeholder="{{ __('users.phone')}}" wire:model="phone">
                             <div class="form-control-icon">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
@@ -122,11 +122,11 @@
                     <div class="col-md-6 col-12">
                         <div class="form-group position-relative has-icon-left">
                             <div class="clearfix">
-                                <label for="rol-user">Rol de usuario:</label>
+                                <label for="rol-user">{{ __('users.rol')}}</label>
                             </div>
                             <div class="position-relative">
                                 <select class="form-select" id="rol-user" wire:model="user_rol_id" style="padding-left: 2.5rem;">
-                                    <option selected>Seleccionar...</option>
+                                    <option selected>{{ __('users.choose')}}...</option>
                                     @foreach ($roles as $rol)
                                         <option value="{{$rol->id}}">{{ $rol->rol }}</option>
                                     @endforeach
@@ -142,10 +142,10 @@
                     <div class="col-md-6 col-12">
                         <div class="form-group position-relative has-icon-left">
                             <div class="clearfix">
-                                <label for="password">Nueva contraseña</label>
+                                <label for="password">{{ __('users.password')}}</label>
                             </div>
                             <div class="position-relative">
-                                <input type="password" id="password" class="form-control" placeholder="Contraseña" wire:model="password">
+                                <input type="password" id="password" class="form-control" placeholder="{{ __('users.password')}}" wire:model="password">
                                 <div class="form-control-icon">
                                     <i class="fas fa-lock"></i>
                                 </div>
@@ -158,7 +158,7 @@
 
                 <div class="col-12 d-flex justify-content-end">
                     @empty($user)
-                        <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                        <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">{{ __('users.cancel')}}</button>
                     @endempty
                     <button type="submit" class="btn btn-primary mr-1 mb-1">
                         <div wire:loading wire:target="{{$action}}" class="text-center">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         &nbsp;
-                        @if($user)Actualizar @else Crear @endif Usuario
+                        @if($user){{ __('users.update')}} @else {{ __('users.create')}} @endif
                     </button>
                 </div>
             </div>

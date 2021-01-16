@@ -16,12 +16,12 @@
                             <button class="btn btn-outline-primary" data-toggle="modal" data-target="#createNewFolder">
                                 <i class="fas fa-folder-plus"></i>
                                 &nbsp;&nbsp;&nbsp;
-                                Nueva Carpeta
+                                {{ __('projects.newFolder') }}
                             </button>
                             <button class="btn btn-outline-primary" wire:click="$emit('ShowChooseFile')">
                                 <i class="fas fa-cloud-upload-alt"></i>
                                 &nbsp;&nbsp;&nbsp;
-                                Subir Archivo
+                                {{ __('projects.uploadFile') }}
                             </button>
                         </div>
                     @endif
@@ -59,7 +59,7 @@
                                 </div>
                             @empty
 
-                                <span class="text-center">No hay nada de contenido</span>
+                                <span class="text-center">{{ __('projects.noContent') }}</span>
 
                             @endforelse
                         </div>
@@ -74,14 +74,14 @@
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar Elemento</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">{{ __('projects.deleteItem') }}</h5>
                 </div>
                 <div class="modal-body">
-                    ¿Desea eliminar este elemento?
+                    {{ __('projects.deleteItemConfirmation') }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cancelar</button>
-                    <button onclick="emitEventDestroy()" data-dismiss="modal" type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">{{ __('projects.cancel') }}</button>
+                    <button onclick="emitEventDestroy()" data-dismiss="modal" type="button" class="btn btn-danger btn-sm">{{ __('projects.delete') }}</button>
                 </div>
             </div>
         </div>

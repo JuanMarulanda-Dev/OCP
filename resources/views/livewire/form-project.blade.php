@@ -32,10 +32,10 @@
                 <div class="col-md-12 col-12">
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="first-name">Nombre</label>
+                            <label for="first-name">{{ __('projects.projectName') }}</label>
                         </div>
                         <div class="position-relative">
-                            <input type="text" id="first-name" class="form-control" placeholder="Nombre" wire:model="name">
+                            <input type="text" id="first-name" class="form-control" placeholder="{{ __('projects.projectName') }}" wire:model="name">
                             <div class="form-control-icon">
                                 <i class="fas fa-project-diagram"></i>
                             </div>
@@ -51,9 +51,9 @@
 
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="last-name">Fecha de inicio</label>
+                            <label for="last-name">{{ __('projects.startDate') }}</label>
                         </div>
-                        <input type="date" id="last-name" class="form-control" placeholder="Apellido" wire:model="first_date">
+                        <input type="date" class="form-control" wire:model="first_date">
                         @error('first_date') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
 
@@ -63,9 +63,9 @@
 
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="last-name">Fecha de inicio</label>
+                            <label for="last-name">{{ __('projects.endDate') }}</label>
                         </div>
-                        <input type="date" id="last-name" class="form-control" placeholder="Apellido" wire:model="last_date">
+                        <input type="date" class="form-control" wire:model="last_date">
                         @error('last_date') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
 
@@ -78,10 +78,10 @@
                 <div class="col-md-4 col-12">
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="type_id">Tipo de proyecto</label>
+                            <label for="type_id">{{ __('projects.projectType') }}</label>
                         </div>
                         <select class="form-select" id="type_id" wire:model="project_type_id">
-                            <option selected>Seleccionar...</option>
+                            <option selected>{{ __('projects.choose') }}...</option>
                             @foreach ($types as $type)
                                 <option value="{{$type->id}}">{{ $type->type }}</option>
                             @endforeach
@@ -93,10 +93,10 @@
                 <div class="col-md-4 col-12">
                     <div class="form-group position-relative">
                         <div class="clearfix">
-                            <label for="status_id">Estado</label>
+                            <label for="status_id">{{ __('projects.status') }}</label>
                         </div>
                         <select class="form-select" id="status_id" wire:model="project_status_id">
-                            <option selected>Seleccionar...</option>
+                            <option selected>{{ __('projects.choose') }}...</option>
                             @foreach ($statuses as $status)
                                 <option value="{{$status->id}}">{{ $status->status }}</option>
                             @endforeach
@@ -108,7 +108,7 @@
                 <div class="col-md-4 col-12">
                     <div class="form-group position-relative has-icon-left">
                         <div class="clearfix">
-                            <label for="profession">Progreso</label>
+                            <label for="profession">{{ __('projects.progress') }}</label>
                         </div>
                         <div class="position-relative">
                             <input type="number" min="0" step="1" max="100" id="progress" class="form-control" placeholder="0" wire:model="progress">      
@@ -125,7 +125,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group mb-3">
-                        <textarea placeholder="Descripción del proyecto" class="form-control" rows="3" wire:model="description"></textarea>
+                        <textarea placeholder="{{ __('projects.projectDescription') }}" class="form-control" rows="3" wire:model="description"></textarea>
                         @error('description') <span class="error"><small>{{ $message }}</small></span> @enderror
                     </div>
                 </div>
@@ -133,7 +133,7 @@
 
             <div class="col-12 d-flex justify-content-end">
                 @empty($project)
-                    <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                    <button wire:click="cleanAllFields" type="reset" class="btn btn-light-secondary mr-1 mb-1">{{ __('projects.cancel') }}</button>
                 @endempty
                 <button type="submit" class="btn btn-primary mr-1 mb-1">
                     <div wire:loading wire:target="{{$action}}" class="text-center">
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     &nbsp;
-                    @if($project)Actualizar @else Crear @endif Proyecto
+                    @if($project){{ __('projects.update') }} @else {{ __('projects.create') }} @endif
                 </button>
             </div>
 

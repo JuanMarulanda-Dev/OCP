@@ -6,7 +6,7 @@
                 <div class="d-flex justify-content-between">
                     <a class="d-inline-flex align-items-center p-2 bd-highlight" href="{{ route("usuarios.index") }}">
                         <i class="fas fa-arrow-circle-left"></i>
-                        <h3 class="">&nbsp;Usuarios</h3>
+                        <h3 class="">&nbsp;{{ __('main.users')}}</h3>
                     </a>
                 </div>
             </div>
@@ -18,11 +18,11 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#user-form" role="tab"
-                        aria-controls="home" aria-selected="true">Datos de usuario</a>
+                        aria-controls="home" aria-selected="true">{{ __('users.usersData')}}</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link @if(!$user) disabled @endisset" id="profile-tab" data-toggle="tab" href="#projects" role="tab"
-                        aria-controls="profile" aria-selected="false">Proyectos asignados</a>
+                        aria-controls="profile" aria-selected="false">{{ __('users.projectsAssignment')}}</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">

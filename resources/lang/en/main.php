@@ -4,17 +4,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | Main Layout Application Language Lines
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
+    | The following language lines are used in Main Layout apllication
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'mainMenu' => 'Main Menu',
+    'users' => 'Users',
+    'projects' => 'Projects',
+    'profile' => 'Profile',
+    'contact' => 'Contact',
+    'myProjects' => 'My Projects',
+    'myProfile' => 'My Profile',
+    'signOff' => 'Sign off',
+    'admin' => 'Admin',
+    'user' => 'User',
+    'greeting' => 'Hi',
 
 ];
