@@ -52,5 +52,11 @@ return [
     'copyUrlItem' => "Copy URL",
     'dowloadItem' => "Dowload",
     'deleteItem' => "Delete",
+    // Messages
+    'success' => "Success!",
+    'successMessageUpdated' => "The project was updated success.",
+    'successMessageCreated' => "The project was created success.",
+    'successMessageDeleted' => "The project was deleted success.",
+
 
 ];

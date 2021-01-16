@@ -34,6 +34,12 @@ return [
     'password' => 'Password',
     'assigned' => 'Assigned',
     'saveChanges' => 'Save Changes',
-
+    // Messages
+    'success' => "Success!",
+    'error' => "Success!",
+    'successMessageUpdated' => "The user was updated success.",
+    'successMessageCreated' => "The user was created success.",
+    'successMessageDeleted' => "The user was deleted success.",
+    'errorMessage' => "an error occurred",
 
 ];

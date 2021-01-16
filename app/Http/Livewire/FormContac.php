@@ -25,10 +25,10 @@ class FormContac extends Component
         try {
             
             // Send email to admin of system OCP
-            Mail::to('judama3012@gmail.com')->send(new ContactMail($validatedData));
+            Mail::to(env('MAIL_FROM_ADDRESS', 'mjrvalenciano@mimsistemas.com'))->send(new ContactMail($validatedData));
 
             // Emit message to action succes with toastr.js
-            $this->emit('ShowActionFinishedSuccess', 'Mensaje enviado correctamente!', 'Exitoso.');
+            $this->emit('ShowActionFinishedSuccess', __('contact.successMessageSended'), __('contact.success'));
 
         } catch (\Throwable $th) {
             //throw $th;

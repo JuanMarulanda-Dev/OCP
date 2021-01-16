@@ -54,14 +54,14 @@ class IndexUser extends Component
                 $this->userId = 0;
                 // Delete Images if have somethings 
 
-                $this->emit('ShowActionFinishedSuccess', 'Usuario eliminado exitosamente.', 'Exitoso!');
+                $this->emit('ShowActionFinishedSuccess', __('users.successMessageDeleted'), __('users.success'));
                 $this->emit('HiddeDeleteConfirmationModal');
                 
             }
 
         } catch (\Throwable $th) {
             //throw $th;
-            $this->emit('ShowActionFinishedError', 'Ocurrio un problema al eliminar el usuario.', 'Error!');
+            $this->emit('ShowActionFinishedError', __('users.errorMessage'), __('users.error'));
         }
 
     }

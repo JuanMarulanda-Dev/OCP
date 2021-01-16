@@ -16,5 +16,8 @@ return [
     'case' => "Case",
     'comments' => " Comments",
     'send' => "Send",
+    // Messages
+    'success' => "Success!",
+    'successMessageSended' => "The message was sended success.",
 
 ];

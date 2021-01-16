@@ -4,9 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Image;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -92,7 +90,7 @@ class FormUser extends Component
 
             }
             //Emit event that show message action
-            $this->emit('ShowActionFinishedSuccess', "El usuario fue registrado exitosamente.", "Exitoso!");
+            $this->emit('ShowActionFinishedSuccess', __('projects.successMessageCreated'), __('users.success'));
         }
 
     }
@@ -167,7 +165,7 @@ class FormUser extends Component
         }
 
         //Emit event that show message action
-        $this->emit('ShowActionFinishedSuccess', "El usuario fue actualizado exitosamente.", "Exitoso!");
+        $this->emit('ShowActionFinishedSuccess', __('users.successMessageUpdated'), __('users.success'));
     }
 
     public function upload_image()

@@ -21,7 +21,8 @@ class FormProject extends Component
             $project_type_id, 
             $project_status_id, 
             $progress, 
-            $description, $image;
+            $description, 
+            $image;
 
     protected $rules = [
         'name' => 'required|string|max:100',
@@ -82,8 +83,8 @@ class FormProject extends Component
             }
             
             // Message by toastr
-            session()->flash('body', 'El proyecto fue creado exitosamente.');
-            session()->flash('title', 'Exitoso!');
+            session()->flash('body', __('projects.successMessageCreated'));
+            session()->flash('title',  __('projects.success'));
 
             return redirect()->to(route('proyectos.show', $project->encid));
 
@@ -148,8 +149,8 @@ class FormProject extends Component
             }
             
             // Message by toastr
-            session()->flash('body', 'El proyecto fue actualizado exitosamente.');
-            session()->flash('title', 'Exitoso!');
+            session()->flash('body', __('projects.successMessageUpdated'));
+            session()->flash('title', __('projects.success'));
 
             return redirect()->to(route('proyectos.show', $this->project->encid));
 

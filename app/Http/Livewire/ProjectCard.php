@@ -25,8 +25,8 @@ class ProjectCard extends Component
             Project::destroy($this->project->id);
             
             // Message by toastr
-            session()->flash('body', 'El proyecto fue eliminado exitosamente.');
-            session()->flash('title', 'Exitoso!');
+            session()->flash('body',  __('projects.successMessageDeleted'));
+            session()->flash('title', __('projects.success'));
 
             return redirect()->to(route('proyectos.index'));
         }
