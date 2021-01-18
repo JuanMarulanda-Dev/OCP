@@ -11,7 +11,7 @@
                         <a href="{{ route('login') }}">
                             <small>
                                 <i class="fas fa-arrow-circle-left"></i>
-                                Volver
+                                {{ __('passwords.back') }}
                             </small>
                         </a>
                     </div>
@@ -19,7 +19,7 @@
                     <div class="text-center mb-4">
                         <img src="{{ asset("images/logo-azul.png") }}" height="55"
                             class='mb-4'>
-                        <h4 class="font-weight-bolder">Restablecer Contraseña</h4>
+                        <h4 class="font-weight-bolder">{{ __('passwords.passwordReset') }}</h4>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -30,9 +30,9 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
                         <div class="form-group position-relative has-icon-left">
-                            <label for="email">Correo electronico*</label>
+                            <label for="email">{{ __('login.email') }}*</label>
                             <div class="position-relative">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Correo electronico" autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="{{ __('login.email') }}" autocomplete="email" autofocus>
                                 <div class="form-control-icon">
                                     <i class="far fa-user"></i>
                                 </div>
@@ -47,7 +47,7 @@
 
                         <div class="clearfix">
                             <button type="submit" class="btn btn-primary btn-block">
-                                Enviar correo de restablecer&nbsp;
+                                {{ __('passwords.btnSent') }}&nbsp;
                                 <i class="far fa-paper-plane"></i>
                             </button>
                         </div>

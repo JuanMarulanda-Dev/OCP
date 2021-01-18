@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Project;
 use App\Traits\SearchProjectContet;
 use Livewire\Component;
 
@@ -14,7 +13,7 @@ class ProjectCoverPage extends Component
     
     public function mount($project_folder)
     {
-        $this->project_folder = $project_folder.'/'."cover_page";
+        $this->project_folder = $project_folder."/cover_page";
     }
 
     public function render()

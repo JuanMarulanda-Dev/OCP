@@ -97,10 +97,12 @@ class FormProject extends Component
         //Validate User's Fields
         $validatedData = $this->validate();
 
-        // Validate if the request has a image
-        $this->validate([
-            'image' => 'file|nullable|max:5024' // 5MB
-        ]);
+        if(gettype($this->image) === "object"){
+            // Validate if the request has a image
+            $this->validate([
+                'image' => 'file|nullable|max:5024' // 5MB
+            ]);
+        }
 
         // Save new project
         $response = $this->project->update($validatedData);
@@ -111,7 +113,7 @@ class FormProject extends Component
             $ProjectDirectory = config('aws3.aws_prefix_project_folder').$this->project->id."/Fotos y videos";
 
             // Upload Image
-            if(isset($this->image)){
+            if(isset($this->image) && gettype($this->image) === "object"){
 
                 // Does project Have one profile image
                 if(isset($this->project->image)){

@@ -102,11 +102,12 @@ class FormUser extends Component
 
         //Validate User's Fields to Update
         $validatedData = $this->validate($this->rules);
-
-        // Validate image
-        $this->validate([
-            'image' => 'file|nullable|max:5024'
-        ]);
+        if(gettype($this->image) === "object"){
+            // Validate image
+            $this->validate([
+                'image' => 'file|nullable|max:5024'
+            ]);
+        }
 
         $data_user = [
             'name' => $validatedData['name'],
@@ -127,7 +128,7 @@ class FormUser extends Component
         $this->user->update($data_user);
 
         // Upload Image
-        if(isset($this->image)){
+        if(isset($this->image) && gettype($this->image) === "object"){
 
             // Does User Have one profile image
             if(isset($this->user->image)){
