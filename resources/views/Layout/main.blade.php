@@ -114,14 +114,14 @@
         </div>
     </div>
 
-    <footer>
+    {{-- <footer>
         <div class="footer clearfix mb-0 text-muted">
             <div class="float-right">
                 <p>Development Made With <span class='text-danger'><i data-feather="heart"></i></span> by <a
                         href="https://www.workana.com/freelancer/ba17fd31879a6c3245972dc488eee3c1?ref=user_dropdown">Juan David M</a></p>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <script src="{{asset("js/feather-icons/feather.min.js")}}"></script>
     <script src="{{asset("vendors/perfect-scrollbar/perfect-scrollbar.min.js")}}"></script>

@@ -27,11 +27,11 @@ class Login extends Component
     
             }else{
     
-                $this->emit('ShowAlertDangerUserNotFound', "Advertencia!", "Contraseña incorrecta");
+                $this->emit('ShowAlertDangerUserNotFound', __('login.warning'), __('login.incorrectPassword'));
             }
         }else{
             
-            $this->emit('ShowAlertDangerUserNotFound', "Advertencia!", "No se encontró cuenta del usuario con el correo especificado.");
+            $this->emit('ShowAlertDangerUserNotFound', __('login.warning'), __('login.dontFoundUser'));
         }
 
     }

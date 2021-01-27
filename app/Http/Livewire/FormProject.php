@@ -68,7 +68,7 @@ class FormProject extends Component
         if(isset($project)){
 
             //Project folder for save main image project
-            $ProjectDirectory = config('aws3.aws_prefix_project_folder').$project->id."/Fotos y videos";
+            $ProjectDirectory = config('aws3.aws_prefix_project_folder').$project->id."/Documents";
 
             // Upload Image
             if(isset($this->image)){
@@ -110,7 +110,7 @@ class FormProject extends Component
         if(isset($this->project) && $response){
 
             //Project folder for save main image project
-            $ProjectDirectory = config('aws3.aws_prefix_project_folder').$this->project->id."/Fotos y videos";
+            $ProjectDirectory = config('aws3.aws_prefix_project_folder').$this->project->id."/Documents";
 
             // Upload Image
             if(isset($this->image) && gettype($this->image) === "object"){

@@ -104,7 +104,7 @@
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">{{ __('projects.deteleProject') }}/h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">{{ __('projects.deleteProject') }}</h5>
                 </div>
                 <div class="modal-body">
                     {{ __('projects.deleteConfirmation') }} <strong>{{ $project->name }}</strong>?

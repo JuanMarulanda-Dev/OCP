@@ -10,6 +10,6 @@ class ContactController extends Controller
 
     public function showContactForm()
     {
-            return view('Modules.contacto.contacto', ['module' => $this->module]);
+            return view("Modules/Contacto/contacto", ['module' => $this->module]);
     }
 }

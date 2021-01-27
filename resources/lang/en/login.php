@@ -18,5 +18,8 @@ return [
     'password' => 'Password',
     'forgotYourPassword' => 'Forgot your password?',
     'signIn' => 'Sign in',
+    'incorrectPassword' => 'Incorrect Password',
+    'dontFoundUser' => "Don't found user account with this email address",
+    'warning' => 'Warning',
 
 ];
