@@ -1,6 +1,6 @@
 <div class="section-project-item">
 
-    <div @if($isFolderOrFile == 0) wire:click="changePorjectFolder('{{ $path }}')" @else onclick="showFileInOtherWindow(this)" @endif class="project-item d-flex flex-column justify-content-between align-items-center">
+    <div @if($isFolderOrFile == 0) onclick="window.livewire.emitTo('form-project-file','searchInsideFolder', '{{ $path }}');" @else onclick="showFileInOtherWindow(this)" @endif class="project-item d-flex flex-column justify-content-between align-items-center">
         <a download="{{ $name }}" class="d-none" target="_blank" @if($isFolderOrFile == 1) href="{{ config("aws3.aws_url_bucket").$path }}" @endif></a>
         <span>
             @if ($isFolderOrFile == 1 && Str::of($name)->endsWith(['.png', '.jpg']))

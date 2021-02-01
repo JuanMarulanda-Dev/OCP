@@ -1,16 +1,22 @@
 <div class="row">
-    @forelse ($images as $image)
 
-        <div class="col-12 mb-2">
-            <img src="{{ config("aws3.aws_url_bucket").$image }}" class="img-fluid" alt="{{ $image }}">       
-        </div>
+    <div class="col-12 mb-2">
+        <ul id="images" class="p-0" style="list-style: none; cursor: zoom-in;">
+            @forelse ($images as $image)
 
-    @empty
+                <li><img src="{{ config('aws3.aws_url_bucket') . $image }}" class="img-fluid" alt="{{ $image }}"></li>
 
-    <div class="col-12 text-center">
-        {{ __('projects.noImages') }}
+            @empty
+
+            <div class="col-12 text-center">
+                {{ __('projects.noImages') }}
+            </div>
+    
+            @endforelse
+        </ul>
     </div>
 
-    @endforelse
+
+
 
 </div>

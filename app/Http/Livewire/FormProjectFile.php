@@ -15,7 +15,7 @@ class FormProjectFile extends Component
     
     public $first_time, $project, $file, $project_folder, $route_content="/";
 
-    protected $listeners = ['destroyPath', 'createNewProjcetFolder'];
+    protected $listeners = ['destroyPath', 'createNewProjcetFolder', 'searchInsideFolder' => 'changePorjectFolder'];
 
     public function mount($project, $project_folder)
     {

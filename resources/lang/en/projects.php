@@ -50,7 +50,7 @@ return [
     'deleteItemConfirmation' => "Do you wish delete this element?",
     // Project Item
     'copyUrlItem' => "Copy URL",
-    'dowloadItem' => "Dowload",
+    'dowloadItem' => "Download",
     'deleteItem' => "Delete",
     // Messages
     'success' => "Success!",

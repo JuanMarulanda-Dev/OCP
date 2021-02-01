@@ -33,7 +33,7 @@
                     <div class="container">
 
                         <div class="row">
-                            <div wire:target="destroyPath,changePorjectFolder,rollbackProjectFolder,createNewProjcetFolder" wire:loading class="text-center">
+                            <div wire.emit.target="changePorjectFolder" wire:target="destroyPath,rollbackProjectFolder,createNewProjcetFolder" wire:loading class="text-center">
                                 <br>
                                 <div class="spinner-border position-relative" role="status">
                                     <span class="sr-only">Loading...</span>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="row" wire:target="destroyPath,changePorjectFolder,rollbackProjectFolder,createNewProjcetFolder" wire:loading.class="d-none">
+                        <div class="row" wire.emit.target="changePorjectFolder" wire:target="destroyPath,rollbackProjectFolder,createNewProjcetFolder" wire:loading.class="d-none">
                             @forelse ($project_content as $item)
                                 <div class="col-lg-2">
                                     @php

@@ -1,7 +1,7 @@
 @extends('Layout/main')
 
 @section('css')
-
+    <link  href="{{ asset("viewerjs/dist/viewer.css") }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -120,6 +120,15 @@
 @endsection
 
 @push('scripts')
+
+    <script src="{{ asset("viewerjs/dist/viewer.js") }}"></script>
+
+    <script>
+        // Viewverjs instance
+        const viewer = new Viewer(document.getElementById('images'), {
+            title: false
+        });
+    </script>
 
     <script>
 
